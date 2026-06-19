@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variables in C — LearnC</title>
+    <meta name="description" content="Learn C Programming with Nikita Ma'am" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <!-- SCROLL TO TOP -->
+    <button id="goTop"><i class="bi bi-arrow-up"></i></button>
+
+    <!-- NAVBAR -->
+    <nav class="lc-nav">
+        <div class="container">
+            <a class="nav-brand" href="index.html"><i class="bi bi-braces"></i>Learn<span>C</span></a>
+            <div class="nav-links">
+                <a class="nav-a " href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a class="nav-a active">Topics <i class="bi bi-chevron-down" style="font-size:.7rem"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="Intro.html"><i class="bi bi-play-circle"></i>Introduction</a>
+                        <a href="Variable.html"><i class="bi bi-box-seam"></i>Variables</a>
+                        <a href="Operator.html"><i class="bi bi-plus-slash-minus"></i>Operators</a>
+                        <a href="Datatype.html"><i class="bi bi-diagram-3"></i>Data Types</a>
+                        <a href="Conditional.html"><i class="bi bi-signpost-split"></i>Conditional Stmts</a>
+                        <a href="ControlStatement.html"><i class="bi bi-arrow-repeat"></i>Control Stmts</a>
+                        <a href="Loop.html"><i class="bi bi-arrow-clockwise"></i>Loops</a>
+                        <a href="array.html"><i class="bi bi-grid-3x3-gap"></i>Arrays</a>
+                        <a href="String.html"><i class="bi bi-type"></i>Strings</a>
+                        <a href="Function.html"><i class="bi bi-braces-asterisk"></i>Functions</a>
+                        <a href="Structure.html"><i class="bi bi-building"></i>Structures</a>
+
+                    </div>
+                </div>
+                <a class="nav-a " href="faq.html">FAQ</a>
+                <a class="nav-a" href="index.html#quiz">Quiz</a>
+                <a class="nav-a" href="index.html#runner">Code Runner</a>
+            </div>
+            <div class="nav-search" style="margin-left:1rem">
+                <i class="bi bi-search si"></i>
+                <input type="text" id="sInput" placeholder="Search topics…" autocomplete="off" />
+                <div class="search-drop" id="sDrop"></div>
+            </div>
+            <div class="theme-btn" id="themeBtn" title="Toggle dark/light" style="margin-left:.75rem"></div>
+            <button class="nav-ham" id="hamBtn"><i class="bi bi-list"></i></button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html"><i class="bi bi-house"></i> Home</a>
+            <a href="Intro.html"><i class="bi bi-play-circle"></i> Introduction</a>
+            <a href="Variable.html"><i class="bi bi-box-seam"></i> Variables</a>
+            <a href="Operator.html"><i class="bi bi-plus-slash-minus"></i> Operators</a>
+            <a href="Datatype.html"><i class="bi bi-diagram-3"></i> Data Types</a>
+            <a href="Conditional.html"><i class="bi bi-signpost-split"></i> Conditional Stmts</a>
+            <a href="ControlStatement.html"><i class="bi bi-arrow-repeat"></i> Control Stmts</a>
+            <a href="Loop.html"><i class="bi bi-arrow-clockwise"></i> Loops</a>
+            <a href="array.html"><i class="bi bi-grid-3x3-gap"></i> Arrays</a>
+            <a href="String.html"><i class="bi bi-type"></i> Strings</a>
+            <a href="Function.html"><i class="bi bi-braces-asterisk"></i> Functions</a>
+            <a href="Structure.html"><i class="bi bi-building"></i> Structures</a>
+            <a href="faq.html"><i class="bi bi-question-circle"></i> FAQ</a>
+            <a href="index.html#quiz"><i class="bi bi-patch-question"></i> Quiz</a>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="lc-breadcrumb"><a href="index.html">Home</a><i
+                    class="bi bi-chevron-right"></i><span>Variables</span></div>
+            <div class="hero-tag"><i class="bi bi-box-seam-fill"></i> Topic 2 of 11</div>
+            <h1>Variables in <span class="hl">C Programming</span></h1>
+            <p class="lead">A variable is a named memory location that stores data. It is the most fundamental concept
+                in any programming language.</p>
+        </div>
+    </section>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-8">
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-box-seam-fill"></i>What is a Variable?</h3>
+                        <p>A <strong>variable</strong> is a container that holds data which can change during program
+                            execution. Every variable has a <strong>name</strong>, a <strong>data type</strong>, and a
+                            <strong>value</strong>.
+                        </p>
+                        <ul>
+                            <li>Variables are stored in RAM memory during program execution.</li>
+                            <li>Each variable has a unique memory address.</li>
+                            <li>The value of a variable can change but its type cannot.</li>
+                        </ul>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-code-slash"></i>Declaring Variables</h3>
+                        <p>Syntax: <code>data_type variable_name;</code> or
+                            <code>data_type variable_name = value;</code>
+                        </p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">variables.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int age = 20;           // Integer variable
+    float marks = 95.5;     // Float variable
+    char grade = 'A';       // Character variable
+    double pi = 3.14159;    // Double variable
+
+    printf("Age: %d\n", age);
+    printf("Marks: %.1f\n", marks);
+    printf("Grade: %c\n", grade);
+    printf("Pi: %lf\n", pi);
+
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>Age: 20<br>Marks: 95.5<br>Grade: A<br>Pi: 3.141590</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-card-list"></i>Rules for Naming Variables</h3>
+                        <table class="syn-table">
+                            <tr>
+                                <th>Rule</th>
+                                <th>Example</th>
+                            </tr>
+                            <tr>
+                                <td>Must start with a letter or underscore (_)</td>
+                                <td><code>age</code>, <code>_count</code> ✅</td>
+                            </tr>
+                            <tr>
+                                <td>Can contain letters, digits, underscore</td>
+                                <td><code>my_var2</code> ✅</td>
+                            </tr>
+                            <tr>
+                                <td>Cannot start with a digit</td>
+                                <td><code>2name</code> ❌</td>
+                            </tr>
+                            <tr>
+                                <td>Cannot use C keywords</td>
+                                <td><code>int</code>, <code>for</code> ❌</td>
+                            </tr>
+                            <tr>
+                                <td>Case sensitive</td>
+                                <td><code>Age</code> ≠ <code>age</code></td>
+                            </tr>
+                            <tr>
+                                <td>No spaces allowed</td>
+                                <td><code>my var</code> ❌</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-layers-fill"></i>Types of Variables</h3>
+                        <div class="key-points">
+                            <div class="kp-card">
+                                <h5>Local Variable</h5>
+                                <p>Declared inside a function. Only accessible within that function.</p>
+                            </div>
+                            <div class="kp-card">
+                                <h5>Global Variable</h5>
+                                <p>Declared outside all functions. Accessible from any function in the program.</p>
+                            </div>
+                            <div class="kp-card">
+                                <h5>Static Variable</h5>
+                                <p>Retains its value between function calls. Declared with <code>static</code> keyword.
+                                </p>
+                            </div>
+                            <div class="kp-card">
+                                <h5>Extern Variable</h5>
+                                <p>Declared in another file. Used to share variables across multiple files.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-lightning-fill"></i>Format Specifiers</h3>
+                        <table class="syn-table">
+                            <tr>
+                                <th>Specifier</th>
+                                <th>Data Type</th>
+                                <th>Example</th>
+                            </tr>
+                            <tr>
+                                <td><code>%d</code></td>
+                                <td>int</td>
+                                <td><code>printf("%d", 10);</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>%f</code></td>
+                                <td>float</td>
+                                <td><code>printf("%f", 3.14);</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>%lf</code></td>
+                                <td>double</td>
+                                <td><code>printf("%lf", 3.14);</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>%c</code></td>
+                                <td>char</td>
+                                <td><code>printf("%c", 'A');</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>%s</code></td>
+                                <td>string</td>
+                                <td><code>printf("%s", "hello");</code></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="topic-nav">
+                        <a class="tnav-btn" href="Intro.html"><i class="bi bi-arrow-left"></i><span><span
+                                    class="lbl">Previous</span>Introduction</span></a>
+                        <a class="tnav-btn next" href="Operator.html"><span><span
+                                    class="lbl">Next</span>Operators</span><i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="concept-box" style="position:sticky;top:90px">
+                        <h3><i class="bi bi-list-ul"></i>In This Topic</h3>
+                        <ul>
+                            <li>What is a Variable?</li>
+                            <li>Declaring Variables</li>
+                            <li>Naming Rules</li>
+                            <li>Types of Variables</li>
+                            <li>Format Specifiers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="lc-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand"><i class="bi bi-braces"></i>Learn<span>C</span></div>
+                    <p class="footer-tagline">A free, structured C programming learning resource built for engineering
+                        students.</p>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer-head">Basics</div>
+                    <ul class="footer-ul">
+                        <li><a href="Intro.html"><i class="bi bi-chevron-right"></i>Introduction</a></li>
+                        <li><a href="Variable.html"><i class="bi bi-chevron-right"></i>Variables</a></li>
+                        <li><a href="Operator.html"><i class="bi bi-chevron-right"></i>Operators</a></li>
+                        <li><a href="Datatype.html"><i class="bi bi-chevron-right"></i>Data Types</a></li>
+                        <li><a href="Loop.html"><i class="bi bi-chevron-right"></i>Loops</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer-head">Advanced</div>
+                    <ul class="footer-ul">
+                        <li><a href="Conditional.html"><i class="bi bi-chevron-right"></i>Conditionals</a></li>
+                        <li><a href="array.html"><i class="bi bi-chevron-right"></i>Arrays</a></li>
+                        <li><a href="String.html"><i class="bi bi-chevron-right"></i>Strings</a></li>
+                        <li><a href="Function.html"><i class="bi bi-chevron-right"></i>Functions</a></li>
+                        <li><a href="Structure.html"><i class="bi bi-chevron-right"></i>Structures</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-head">Quick Links</div>
+                    <ul class="footer-ul">
+                        <li><a href="index.html#quiz"><i class="bi bi-patch-question"></i>Take a Quiz</a></li>
+                        <li><a href="index.html#runner"><i class="bi bi-play-circle"></i>Code Runner</a></li>
+                        <li><a href="index.html#progress-section"><i class="bi bi-bar-chart"></i>Progress Tracker</a>
+                        </li>
+                        <li><a href="faq.html"><i class="bi bi-question-circle"></i>FAQ Page</a></li>
+                    </ul>
+                    <div class="footer-head mt-3">Contact</div>
+                    <ul class="footer-ul">
+                        <li><a href="#"><i class="bi bi-envelope"></i>nikita@learncprog.com</a></li>
+                        <li><a href="#"><i class="bi bi-telephone"></i>+91 98766 29972</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 LearnC — Nikita Ma'am. All rights reserved.</p>
+                <div class="socials">
+                    <a class="social-a" href="#"><i class="bi bi-instagram"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-youtube"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-facebook"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="js/topic.js"></script>
+</body>
+
+</html>

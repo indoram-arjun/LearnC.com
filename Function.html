@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions in C - LearnC</title>
+    <meta name="description" content="Learn functions in C with declarations, calls, definitions, parameters, return values, and recursion." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <button id="goTop" title="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+    <nav class="lc-nav">
+        <div class="container">
+            <a class="nav-brand" href="index.html"><i class="bi bi-braces"></i>Learn<span>C</span></a>
+            <div class="nav-links">
+                <a class="nav-a" href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a class="nav-a active">Topics <i class="bi bi-chevron-down" style="font-size:.7rem"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="Intro.html"><i class="bi bi-play-circle"></i>Introduction</a>
+                        <a href="Variable.html"><i class="bi bi-box-seam"></i>Variables</a>
+                        <a href="Operator.html"><i class="bi bi-plus-slash-minus"></i>Operators</a>
+                        <a href="Datatype.html"><i class="bi bi-diagram-3"></i>Data Types</a>
+                        <a href="Conditional.html"><i class="bi bi-signpost-split"></i>Conditional Stmts</a>
+                        <a href="ControlStatement.html"><i class="bi bi-arrow-repeat"></i>Control Stmts</a>
+                        <a href="Loop.html"><i class="bi bi-arrow-clockwise"></i>Loops</a>
+                        <a href="array.html"><i class="bi bi-grid-3x3-gap"></i>Arrays</a>
+                        <a href="String.html"><i class="bi bi-type"></i>Strings</a>
+                        <a href="Function.html"><i class="bi bi-braces-asterisk"></i>Functions</a>
+                        <a href="Structure.html"><i class="bi bi-building"></i>Structures</a>
+                    </div>
+                </div>
+                <a class="nav-a" href="faq.html">FAQ</a>
+                <a class="nav-a" href="index.html#quiz">Quiz</a>
+                <a class="nav-a" href="index.html#runner">Code Runner</a>
+            </div>
+            <div class="nav-search" style="margin-left:1rem">
+                <i class="bi bi-search si"></i>
+                <input type="text" id="sInput" placeholder="Search topics..." autocomplete="off" />
+                <div class="search-drop" id="sDrop"></div>
+            </div>
+            <div class="theme-btn" id="themeBtn" title="Toggle dark/light" style="margin-left:.75rem"></div>
+            <button class="nav-ham" id="hamBtn"><i class="bi bi-list"></i></button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html"><i class="bi bi-house"></i> Home</a>
+            <a href="Intro.html"><i class="bi bi-play-circle"></i> Introduction</a>
+            <a href="Variable.html"><i class="bi bi-box-seam"></i> Variables</a>
+            <a href="Operator.html"><i class="bi bi-plus-slash-minus"></i> Operators</a>
+            <a href="Datatype.html"><i class="bi bi-diagram-3"></i> Data Types</a>
+            <a href="Conditional.html"><i class="bi bi-signpost-split"></i> Conditional Stmts</a>
+            <a href="ControlStatement.html"><i class="bi bi-arrow-repeat"></i> Control Stmts</a>
+            <a href="Loop.html"><i class="bi bi-arrow-clockwise"></i> Loops</a>
+            <a href="array.html"><i class="bi bi-grid-3x3-gap"></i> Arrays</a>
+            <a href="String.html"><i class="bi bi-type"></i> Strings</a>
+            <a href="Function.html"><i class="bi bi-braces-asterisk"></i> Functions</a>
+            <a href="Structure.html"><i class="bi bi-building"></i> Structures</a>
+            <a href="faq.html"><i class="bi bi-question-circle"></i> FAQ</a>
+            <a href="index.html#quiz"><i class="bi bi-patch-question"></i> Quiz</a>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="lc-breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="bi bi-chevron-right"></i>
+                <span>Functions</span>
+            </div>
+            <div class="hero-tag"><i class="bi bi-braces-asterisk"></i> Topic 10 of 11</div>
+            <h1>Functions in <span class="hl">C Programming</span></h1>
+            <p class="lead">A function is a reusable block of code that performs one clear task. Functions make large
+                programs easier to read, test, and reuse.</p>
+            <div class="topic-pills">
+                <a class="topic-pill" href="String.html">Strings</a>
+                <a class="topic-pill active" href="Function.html">Functions</a>
+                <a class="topic-pill" href="Structure.html">Structures</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="concept-box">
+                        <h3><i class="bi bi-info-circle-fill"></i>What is a Function?</h3>
+                        <p>A <strong>function</strong> is a named block of statements. Instead of writing the same code
+                            again and again, you write it once inside a function and call it whenever needed.</p>
+                        <div class="mini-grid">
+                            <div class="mini-card">
+                                <strong>Reusable</strong>
+                                Use the same logic many times.
+                            </div>
+                            <div class="mini-card">
+                                <strong>Readable</strong>
+                                Split a big program into small parts.
+                            </div>
+                            <div class="mini-card">
+                                <strong>Testable</strong>
+                                Check one task at a time.
+                            </div>
+                        </div>
+                        <div class="callout tip">
+                            <strong>Easy idea:</strong> Function ek chhota machine jaisa hota hai - input do, kaam
+                            karata hai, aur optional output return karta hai.
+                        </div>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-diagram-3-fill"></i>Function Parts</h3>
+                        <table class="syn-table">
+                            <tr>
+                                <th>Part</th>
+                                <th>Meaning</th>
+                                <th>Example</th>
+                            </tr>
+                            <tr>
+                                <td>Declaration</td>
+                                <td>Tells the compiler that a function exists.</td>
+                                <td><code>int add(int, int);</code></td>
+                            </tr>
+                            <tr>
+                                <td>Call</td>
+                                <td>Runs the function from another place.</td>
+                                <td><code>sum = add(4, 6);</code></td>
+                            </tr>
+                            <tr>
+                                <td>Definition</td>
+                                <td>Contains the actual function body.</td>
+                                <td><code>int add(int a, int b) { ... }</code></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-code-slash"></i>Basic Function Example</h3>
+                        <p>This program defines a function named <code>add</code> and calls it from
+                            <code>main()</code>.</p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">add_function.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int add(int a, int b);   // function declaration
+
+int main() {
+    int result;
+
+    result = add(10, 20);    // function call
+    printf("Sum = %d\n", result);
+
+    return 0;
+}
+
+int add(int a, int b) {  // function definition
+    return a + b;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>Sum = 30</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-grid-3x3-gap-fill"></i>Types of User-defined Functions</h3>
+                        <table class="syn-table">
+                            <tr>
+                                <th>Type</th>
+                                <th>Example Function</th>
+                                <th>Use Case</th>
+                            </tr>
+                            <tr>
+                                <td>No return, no arguments</td>
+                                <td><code>void greet(void)</code></td>
+                                <td>Print a fixed message.</td>
+                            </tr>
+                            <tr>
+                                <td>No return, with arguments</td>
+                                <td><code>void printSquare(int n)</code></td>
+                                <td>Use input but only print result.</td>
+                            </tr>
+                            <tr>
+                                <td>Return, no arguments</td>
+                                <td><code>int getNumber(void)</code></td>
+                                <td>Calculate or read a value and return it.</td>
+                            </tr>
+                            <tr>
+                                <td>Return, with arguments</td>
+                                <td><code>int max(int a, int b)</code></td>
+                                <td>Most common: input goes in, result comes back.</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-arrow-left-right"></i>Actual and Formal Parameters</h3>
+                        <p><strong>Actual parameters</strong> are the values sent during a function call.
+                            <strong>Formal parameters</strong> are the variables that receive those values inside the
+                            function.</p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">parameters.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+void showMarks(int marks) {       // marks is a formal parameter
+    printf("Marks = %d\n", marks);
+}
+
+int main() {
+    int studentMarks = 86;
+
+    showMarks(studentMarks);      // studentMarks is an actual parameter
+
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>Marks = 86</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-arrow-return-left"></i>Return Value</h3>
+                        <p>The <code>return</code> statement sends a value back to the caller and ends the function.
+                            If a function has return type <code>void</code>, it does not return a value.</p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">largest.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int largest(int a, int b) {
+    if (a &gt; b) {
+        return a;
+    }
+    return b;
+}
+
+int main() {
+    printf("Largest = %d\n", largest(45, 31));
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>Largest = 45</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-repeat"></i>Recursion</h3>
+                        <p>When a function calls itself, it is called <strong>recursion</strong>. Every recursive
+                            function needs a stopping condition; otherwise it keeps calling itself forever.</p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">factorial.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int factorial(int n) {
+    if (n == 0 || n == 1) {
+        return 1;      // stopping condition
+    }
+    return n * factorial(n - 1);
+}
+
+int main() {
+    printf("Factorial = %d\n", factorial(5));
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>Factorial = 120</p>
+                            </div>
+                        </div>
+                        <div class="callout warn">
+                            <strong>Remember:</strong> Recursion mein base condition compulsory hai. Base condition nahi
+                            hogi to function stop nahi karega.
+                        </div>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-code-square"></i>Practice Programs</h3>
+                        <ol>
+                            <li>Write a function to find the square of a number.</li>
+                            <li>Write a function to check whether a number is even or odd.</li>
+                            <li>Write a function to find the largest of three numbers.</li>
+                            <li>Write a recursive function to print numbers from 1 to n.</li>
+                            <li>Write a menu-driven calculator using functions.</li>
+                        </ol>
+                    </div>
+
+                    <div class="topic-nav">
+                        <a class="tnav-btn" href="String.html"><i class="bi bi-arrow-left"></i><span><span
+                                    class="lbl">Previous</span>Strings</span></a>
+                        <a class="tnav-btn next" href="Structure.html"><span><span
+                                    class="lbl">Next</span>Structures</span><i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="concept-box" style="position:sticky;top:90px">
+                        <h3><i class="bi bi-list-ul"></i>In This Topic</h3>
+                        <ul>
+                            <li>What is a function?</li>
+                            <li>Declaration, call, definition</li>
+                            <li>Types of functions</li>
+                            <li>Actual and formal parameters</li>
+                            <li>Return values</li>
+                            <li>Recursion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="lc-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand"><i class="bi bi-braces"></i>Learn<span>C</span></div>
+                    <p class="footer-tagline">A free, structured C programming learning resource built for engineering
+                        students.</p>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer-head">Basics</div>
+                    <ul class="footer-ul">
+                        <li><a href="Intro.html"><i class="bi bi-chevron-right"></i>Introduction</a></li>
+                        <li><a href="Variable.html"><i class="bi bi-chevron-right"></i>Variables</a></li>
+                        <li><a href="Operator.html"><i class="bi bi-chevron-right"></i>Operators</a></li>
+                        <li><a href="Datatype.html"><i class="bi bi-chevron-right"></i>Data Types</a></li>
+                        <li><a href="Loop.html"><i class="bi bi-chevron-right"></i>Loops</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer-head">Advanced</div>
+                    <ul class="footer-ul">
+                        <li><a href="Conditional.html"><i class="bi bi-chevron-right"></i>Conditionals</a></li>
+                        <li><a href="array.html"><i class="bi bi-chevron-right"></i>Arrays</a></li>
+                        <li><a href="String.html"><i class="bi bi-chevron-right"></i>Strings</a></li>
+                        <li><a href="Function.html"><i class="bi bi-chevron-right"></i>Functions</a></li>
+                        <li><a href="Structure.html"><i class="bi bi-chevron-right"></i>Structures</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-head">Quick Links</div>
+                    <ul class="footer-ul">
+                        <li><a href="index.html#quiz"><i class="bi bi-patch-question"></i>Take a Quiz</a></li>
+                        <li><a href="index.html#runner"><i class="bi bi-play-circle"></i>Code Runner</a></li>
+                        <li><a href="index.html#progress-section"><i class="bi bi-bar-chart"></i>Progress Tracker</a>
+                        </li>
+                        <li><a href="faq.html"><i class="bi bi-question-circle"></i>FAQ Page</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 LearnC - Nikita Ma'am. All rights reserved.</p>
+                <div class="socials">
+                    <a class="social-a" href="#"><i class="bi bi-instagram"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-youtube"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-facebook"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="js/topic.js"></script>
+</body>
+
+</html>

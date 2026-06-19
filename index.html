@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LearnC — Master C Programming with Nikita Ma'am</title>
+    <meta name="description"
+        content="A complete C Programming learning resource covering all topics from basics to advanced with examples, quizzes, and a live code runner." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <!-- AOS Animations -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <!-- Highlight.js -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Scroll to Top -->
+    <button id="scrollTop" title="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+    <!-- ═══════════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════════════ -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-braces"></i>
+                Learn<span>C</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                style="color:var(--text)">
+                <i class="bi bi-list" style="font-size:1.4rem"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Topics</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="Intro.html"><i
+                                        class="bi bi-play-circle"></i>Introduction</a></li>
+                            <li><a class="dropdown-item" href="Variable.html"><i class="bi bi-box"></i>Variables</a>
+                            </li>
+                            <li><a class="dropdown-item" href="Operator.html"><i
+                                        class="bi bi-plus-slash-minus"></i>Operators</a></li>
+                            <li><a class="dropdown-item" href="Datatype.html"><i class="bi bi-diagram-3"></i>Data
+                                    Types</a></li>
+                            <li><a class="dropdown-item" href="Conditional.html"><i
+                                        class="bi bi-signpost-split"></i>Conditional Statements</a></li>
+                            <li><a class="dropdown-item" href="ControlStatement.html"><i
+                                        class="bi bi-arrow-repeat"></i>Control Statements</a></li>
+                            <li><a class="dropdown-item" href="Loop.html"><i
+                                        class="bi bi-arrow-clockwise"></i>Loops</a></li>
+                            <li><a class="dropdown-item" href="array.html"><i class="bi bi-grid-3x3"></i>Arrays</a></li>
+                            <li><a class="dropdown-item" href="String.html"><i class="bi bi-type"></i>Strings</a></li>
+                            <li><a class="dropdown-item" href="Function.html"><i
+                                        class="bi bi-braces-asterisk"></i>Functions</a></li>
+                            <li><a class="dropdown-item" href="Structure.html"><i
+                                        class="bi bi-building"></i>Structures</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#quiz">Quiz</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#runner">Code Runner</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-3">
+                    <!-- Search -->
+                    <div class="nav-search">
+                        <i class="bi bi-search search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Search topics…" autocomplete="off" />
+                        <div id="searchResults"></div>
+                    </div>
+                    <!-- Dark Mode Toggle -->
+                    <div class="theme-toggle" id="themeToggle" title="Toggle dark/light mode"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════ -->
+    <section id="hero">
+        <div class="hero-bg">
+            <div class="hero-blob hero-blob-1"></div>
+            <div class="hero-blob hero-blob-2"></div>
+            <div class="hero-blob hero-blob-3"></div>
+            <div class="hero-grid"></div>
+        </div>
+
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <!-- Left -->
+                <div class="col-lg-6 hero-content">
+                    <div class="hero-badge">
+                        <span class="dot"></span>
+                        Free Learning Resource
+                    </div>
+                    <h1>
+                        Master <span class="highlight">C Programming</span><br />
+                        From Zero to Hero
+                    </h1>
+                    <p class="lead">
+                        A complete, structured guide to C programming — with clear explanations, code examples,
+                        interactive quizzes, and a live code runner. Built with ❤️ by Nikita Ma'am.
+                    </p>
+                    <div class="hero-btns">
+                        <a href="#topics" class="btn-primary-custom">
+                            <i class="bi bi-rocket-takeoff-fill"></i> Start Learning
+                        </a>
+                        <a href="#runner" class="btn-outline-custom">
+                            <i class="bi bi-play-circle"></i> Try Code Runner
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-num">11</span>
+                            <span class="stat-label">Topics Covered</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">50+</span>
+                            <span class="stat-label">Code Examples</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">30+</span>
+                            <span class="stat-label">Quiz Questions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right — Code Card -->
+                <div class="col-lg-6 hero-content" data-aos="fade-left" data-aos-delay="200">
+                    <div class="hero-code-card">
+                        <span class="floating-badge">Live Example</span>
+                        <div class="code-card-header">
+                            <div class="dot-red"></div>
+                            <div class="dot-yellow"></div>
+                            <div class="dot-green"></div>
+                            <span class="code-filename">hello.c</span>
+                        </div>
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    // Your first C program
+    char name[] = "Student";
+    int year = 2025;
+
+    printf("Hello, %s!\n", name);
+    printf("Welcome to C in %d\n", year);
+
+    // Simple for loop
+    for (int i = 1; i &lt;= 3; i++) {
+        printf("Step %d: Keep coding!\n", i);
+    }
+
+    return 0;
+}</code></pre>
+                        <div class="code-output">
+                            <p class="label">// OUTPUT</p>
+                            <p>Hello, Student!</p>
+                            <p>Welcome to C in 2025</p>
+                            <p>Step 1: Keep coding!</p>
+                            <p>Step 2: Keep coding!</p>
+                            <p>Step 3: Keep coding!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+       WHY LEARN C
+  ═══════════════════════════════════════════════════ -->
+    <section id="why">
+        <div class="container">
+            <div class="text-center mb-2" data-aos="fade-up">
+                <span class="section-tag">Foundation First</span>
+                <h2 class="section-title">Why Learn C Programming?</h2>
+                <p class="section-subtitle mx-auto">C is the foundation of modern computing. Understanding C gives you
+                    deep knowledge of how computers actually work.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="why-icon" style="background:rgba(79,70,229,0.12);">⚡</div>
+                    <h4>Blazing Fast Performance</h4>
+                    <p>C runs directly on hardware with minimal overhead, making it one of the fastest programming
+                        languages available.</p>
+                </div>
+                <div class="why-card" data-aos="fade-up" data-aos-delay="80">
+                    <div class="why-icon" style="background:rgba(6,182,212,0.12);">🧠</div>
+                    <h4>Understand Memory Management</h4>
+                    <p>C teaches you how memory works — pointers, stack vs heap — knowledge that makes you a better
+                        programmer in any language.</p>
+                </div>
+                <div class="why-card" data-aos="fade-up" data-aos-delay="160">
+                    <div class="why-icon" style="background:rgba(16,185,129,0.12);">🌍</div>
+                    <h4>Everywhere Around You</h4>
+                    <p>Operating systems, embedded devices, databases — Linux, Windows kernel, MySQL are all written in
+                        C.</p>
+                </div>
+                <div class="why-card" data-aos="fade-up" data-aos-delay="240">
+                    <div class="why-icon" style="background:rgba(245,158,11,0.12);">🎓</div>
+                    <h4>University Standard</h4>
+                    <p>C is taught as the first programming language in most engineering courses. Master it to ace your
+                        academics.</p>
+                </div>
+                <div class="why-card" data-aos="fade-up" data-aos-delay="320">
+                    <div class="why-icon" style="background:rgba(239,68,68,0.12);">🔗</div>
+                    <h4>Gateway to Other Languages</h4>
+                    <p>C++, Java, Python, and Rust all borrow concepts from C. Learning C makes every other language
+                        easier.</p>
+                </div>
+                <div class="why-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="why-icon" style="background:rgba(139,92,246,0.12);">💼</div>
+                    <h4>Strong Career Value</h4>
+                    <p>Systems programming, embedded software, game development — C skills are in demand and command
+                        high salaries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+       TOPICS
+  ═══════════════════════════════════════════════════ -->
+    <section id="topics">
+        <div class="container">
+            <div data-aos="fade-up">
+                <span class="section-tag">Curriculum</span>
+                <h2 class="section-title">All Topics</h2>
+                <p class="section-subtitle">Learn step by step — from the very basics to advanced C concepts.</p>
+                <div class="filter-tabs" id="filterTabs">
+                    <button class="filter-tab active" data-filter="all">All</button>
+                    <button class="filter-tab" data-filter="beginner">Beginner</button>
+                    <button class="filter-tab" data-filter="mid">Intermediate</button>
+                    <button class="filter-tab" data-filter="advanced">Advanced</button>
+                </div>
+            </div>
+
+            <div class="topics-grid" id="topicsGrid">
+
+                <a href="Intro.html" class="topic-card" data-level="beginner" data-aos="fade-up" data-aos-delay="0">
+                    <div class="topic-card-header">
+                        <div class="topic-icon-wrap" style="background:rgba(79,70,229,0.12);color:var(--primary)">
+                            <i class="bi bi-play-circle-fill"></i>
+                        </div>
+                        <div>
+                            <h5 style="font-size:1rem;font-weight:700;margin:0">Introduction to C</h5>
+                            <small style="color:var(--text3)">Start here</small>
+                        </div>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>History of C, structure of a C program, compilation process, and your first "Hello, World!"
+                            program.</p>
+                        <span class="topic-level level-beginner">Beginner</span>
+                    </div>
+                    <div class="go-btn"><i class="bi bi-arrow-right"></i></div>
+                </a>
+
+                <a href="Variable.html" class="topic-card" data-level="beginner" data-aos="fade-up" data-aos-delay="60">
+                    <div class="topic-card-header">
+                        <div class="topic-icon-wrap" style="background:rgba(6,182,212,0.12);color:var(--accent)">
+                            <i class="bi bi-box-seam-fill"></i>
+                        </div>
+                        <div>
+                            <h5 style="font-size:1rem;font-weight:700;margin:0">Variables</h5>
+                            <small style="color:var(--text3)">Data storage</small>
+                        </div>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>Declaring and initializing variables, naming rules, scope and lifetime of variables in C.</p>
+                        <span class="topic-level level-beginner">Beginner</span>
+                    </div>
+                    <div class="go-btn"><i class="bi bi-arrow-right"></i></div>
+                </a>
+
+                <a href="Operator.html" class="topic-card" data-level="beginner" data-aos="fade-up"
+                    data-aos-delay="120">
+                    <div class="topic-card-header">
+                        <div class="topic-icon-wrap" style="background:rgba(16,185,129,0.12);color:var(--success)">
+                            <i class="bi bi-plus-slash-minus"></i>
+                        </div>
+                        <div>
+                            <h5 style="font-size:1rem;font-weight:700;margin:0">Operators</h5>
+                            <small style="color:var(--text3)">Arithmetic, logical & more</small>
+                        </div>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>Arithmetic, relational, logical, bitwise, assignment and ternary operators with examples.</p>
+                        <span class="topic-level level-beginner">Beginner</span>
+                    </div>
+                    <div class="go-btn"><i class="bi bi-arrow-right"></i></div>
+                </a>
+
+                <a href="Datatype.html" class="topic-card" data-level="beginner" data-aos="fade-up"
+                    data-aos-delay="180">
+                    <div class="topic-card-header">
+                        <div class="topic-icon-wrap" style="background:rgba(245,158,11,0.12);color:var(--accent2)">
+                            <i class="bi bi-diagram-3-fill"></i>
+                        </div>
+                        <div>
+                            <h5 style="font-size:1rem;font-weight:700;margin:0">Data Types</h5>
+                            <small style="color:var(--text3)">int, float, char…</small>
+                        </div>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>Primitive data types in C — int, float, double, char — and their sizes and ranges.</p>
+                        <span class="topic-level level-beginner">Beginner</span>
+                    </div>
+                    <div class="go-btn"><i class="bi bi-arrow-right"></i></div>
+                </a>
+
+                <a href="Conditional.html" class="topic-card" data-level="mid" data-aos="fade-up" data-aos-delay="0">
+                    <div class="topic-card-header">
+                        <div class="topic-icon-wrap" style="background:rgba(139,92,246,0.12);color:#8b5cf6">
+                            <i class="bi bi-signpost-split-fill"></i>
+                        </div>
+                        <div>
+                            <h5 style="font-size:1rem;font-weight:700;margin:0">Conditional Statements</h5>
+                            <small style="color:var(--text3)">if, else, switch</small>
+                        </div>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>Decision making with if, if-else, if-else-if ladder, nested if, and switch-case statements.
+                        </p>
+                        <span class="topic-level level-mid">Intermediate</span>
+                    </div>
+                    <div class="go-btn"><i class="bi bi-arrow-right"></i></div>
+                </a>
+
+                <a href="ControlStatement.html" class="topic-card" data-level="mid" data-aos="fade-up"
+                    data-aos-delay="60">
+                    <div class="topic-card-header">
+                        <div class="topic-icon-wrap" style="background:rgba(239,68,68,0.12);color:var(--danger)">
+                            <i class="bi bi-arrow-repeat"></i>
+                        </div>
+                        <div>
+                            <h5 style="font-size:1rem;font-weight:700;margin:0">Control Statements</h5>
+                            <small style="color:var(--text3)">break, continue, goto</small>
+                        </div>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>Controlling program flow with break, continue, and goto statements with practical use cases.
+                        </p>
+                        <span class="topic-level level-mid">Intermediate</span>
+                    </div>
+                    <div class="go-btn"><i class="bi bi-arrow-right"></i></div>
+                </a>
+
+                <a href="Loop.html" class="topic-card" data-level="mid" data-aos="fade-up" data-aos-delay="120">
+                    <div class="topic-card-header">
+                        <div class="topic-icon-wrap" style="background:rgba(79,70,229,0.12);color:var(--primary)">
+                            <i class="bi bi-arrow-clockwise"></i>
+                        </div>
+                        <div>
+                            <h5 style="font-size:1rem;font-weight:700;margin:0">Loops</h5>
+                            <small style="color:var(--text3)">for, while, do-while</small>
+                        </div>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>Repetition using for loop, while loop, and do-while loop with nested loop examples.</p>
+                        <span class="topic-level level-mid">Intermediate</span>
+                    </div>
+                    <div class="go-btn"><i class="bi bi-arrow-right"></i></div>
+                </a>
+
+                <a href="array.html" class="topic-card" data-level="mid" data-aos="fade-up" data-aos-delay="180">
+                    <div class="topic-card-header">
+                        <div class="topic-icon-wrap" style="background:rgba(6,182,212,0.12);color:var(--accent)">
+                            <i class="bi bi-grid-3x3-gap-fill"></i>
+                        </div>
+                        <div>
+                            <h5 style="font-size:1rem;font-weight:700;margin:0">Arrays</h5>
+                            <small style="color:var(--text3)">1D & 2D arrays</small>
+                        </div>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>Single and multi-dimensional arrays, array traversal, searching, and sorting programs.</p>
+                        <span class="topic-level level-mid">Intermediate</span>
+                    </div>
+                    <div class="go-btn"><i class="bi bi-arrow-right"></i></div>
+                </a>
+
+                <a href="String.html" class="topic-card" data-level="advanced" data-aos="fade-up" data-aos-delay="0">
+                    <div class="topic-card-header">
+                        <div class="topic-icon-wrap" style="background:rgba(245,158,11,0.12);color:var(--accent2)">
+                            <i class="bi bi-type-h1"></i>
+                        </div>
+                        <div>
+                            <h5 style="font-size:1rem;font-weight:700;margin:0">Strings</h5>
+                            <small style="color:var(--text3)">String functions</small>
+                        </div>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>String declaration, input/output, and built-in functions — strlen, strcpy, strcat, strcmp.
+                        </p>
+                        <span class="topic-level level-advanced">Advanced</span>
+                    </div>
+                    <div class="go-btn"><i class="bi bi-arrow-right"></i></div>
+                </a>
+
+                <a href="Function.html" class="topic-card" data-level="advanced" data-aos="fade-up" data-aos-delay="60">
+                    <div class="topic-card-header">
+                        <div class="topic-icon-wrap" style="background:rgba(16,185,129,0.12);color:var(--success)">
+                            <i class="bi bi-braces-asterisk"></i>
+                        </div>
+                        <div>
+                            <h5 style="font-size:1rem;font-weight:700;margin:0">Functions</h5>
+                            <small style="color:var(--text3)">Modular programming</small>
+                        </div>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>Defining, declaring, and calling functions. Return types, parameters, recursion, and scope.
+                        </p>
+                        <span class="topic-level level-advanced">Advanced</span>
+                    </div>
+                    <div class="go-btn"><i class="bi bi-arrow-right"></i></div>
+                </a>
+
+                <a href="Structure.html" class="topic-card" data-level="advanced" data-aos="fade-up"
+                    data-aos-delay="120">
+                    <div class="topic-card-header">
+                        <div class="topic-icon-wrap" style="background:rgba(139,92,246,0.12);color:#8b5cf6">
+                            <i class="bi bi-building-fill"></i>
+                        </div>
+                        <div>
+                            <h5 style="font-size:1rem;font-weight:700;margin:0">Structures</h5>
+                            <small style="color:var(--text3)">User-defined types</small>
+                        </div>
+                    </div>
+                    <div class="topic-card-body">
+                        <p>Grouping related data with struct, accessing members, array of structures, nested structs.
+                        </p>
+                        <span class="topic-level level-advanced">Advanced</span>
+                    </div>
+                    <div class="go-btn"><i class="bi bi-arrow-right"></i></div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+       PROGRESS TRACKER
+  ═══════════════════════════════════════════════════ -->
+    <section id="progress-section">
+        <div class="container">
+            <div data-aos="fade-up">
+                <span class="section-tag">Your Journey</span>
+                <h2 class="section-title">Progress Tracker</h2>
+                <p class="section-subtitle">Click on a topic to mark it as completed. Your progress is saved in your
+                    browser.</p>
+            </div>
+            <div class="progress-grid" id="progressGrid">
+                <!-- filled by JS -->
+            </div>
+            <div class="progress-bar-overall" style="margin-top:2rem">
+                <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+            </div>
+            <div class="progress-summary">
+                <span id="progressText">0 of 11 topics completed</span>
+                <span id="progressPct">0%</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+       CODE RUNNER
+  ═══════════════════════════════════════════════════ -->
+    <section id="runner">
+        <div class="container">
+            <div class="row align-items-end mb-4 gy-3" data-aos="fade-up">
+                <div class="col-lg-7">
+                    <span class="section-tag">Interactive</span>
+                    <h2 class="section-title mb-1">C Code Runner</h2>
+                    <p class="section-subtitle">Write C code, run it, and see the output instantly. Choose from example
+                        snippets below.</p>
+                </div>
+                <div class="col-lg-5">
+                    <div class="d-flex flex-wrap gap-2 justify-content-lg-end">
+                        <button class="filter-tab active" onclick="loadSnippet('hello')">Hello World</button>
+                        <button class="filter-tab" onclick="loadSnippet('array')">Array</button>
+                        <button class="filter-tab" onclick="loadSnippet('loop')">Loop</button>
+                        <button class="filter-tab" onclick="loadSnippet('function')">Function</button>
+                    </div>
+                </div>
+            </div>
+            <div class="runner-wrap" data-aos="fade-up" data-aos-delay="100">
+                <div class="runner-tabs">
+                    <div class="runner-tab active">main.c</div>
+                    <div class="runner-tab" style="margin-left:auto;cursor:default" id="runStatus"></div>
+                </div>
+                <div class="runner-body">
+                    <textarea id="codeEditor" spellcheck="false"></textarea>
+                    <div class="runner-output-panel">
+                        <div class="out-label">// Output</div>
+                        <div id="outputArea">Click "Run" to execute your code…</div>
+                    </div>
+                </div>
+                <div class="runner-controls">
+                    <div class="d-flex gap-2 align-items-center">
+                        <button class="run-btn" onclick="runCode()">
+                            <i class="bi bi-play-fill"></i> Run
+                        </button>
+                        <button class="clear-btn" onclick="clearAll()">Clear</button>
+                    </div>
+                    <span class="lang-badge">C Language (Simulated)</span>
+                </div>
+            </div>
+            <p style="font-size:0.78rem;color:var(--text3);margin-top:0.8rem;text-align:center">
+                ℹ️ This runner simulates C output for common patterns. For full compilation, use <strong>GCC</strong> or
+                <strong>OnlineGDB</strong>.
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+       QUIZ
+  ═══════════════════════════════════════════════════ -->
+    <section id="quiz">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-tag">Test Yourself</span>
+                <h2 class="section-title">C Programming Quiz</h2>
+                <p class="section-subtitle mx-auto">Test your C knowledge with these questions. Instant feedback after
+                    every answer!</p>
+            </div>
+            <div class="quiz-card" data-aos="fade-up" data-aos-delay="100">
+                <!-- Quiz UI filled by JS -->
+                <div id="quizContainer"></div>
+                <div id="quizResult" class="quiz-result"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+       INSTRUCTOR
+  ═══════════════════════════════════════════════════ -->
+    <section id="instructor">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-tag">Your Guide</span>
+                <h2 class="section-title">Meet the Instructor</h2>
+            </div>
+            <div class="instructor-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="instructor-avatar">👩‍🏫</div>
+                <div class="instructor-info">
+                    <h3>Nikita Ma'am</h3>
+                    <p class="instructor-role">C Programming Instructor & Educator</p>
+                    <p>
+                        With years of experience teaching C programming to engineering students, Nikita Ma'am has helped
+                        hundreds of students build a strong foundation in programming. Her teaching style focuses on
+                        concept clarity, real examples, and practical problem-solving — making even complex topics easy
+                        to understand.
+                    </p>
+                    <div class="instructor-stats">
+                        <div class="i-stat">
+                            <div class="num">500+</div>
+                            <div class="lbl">Students Taught</div>
+                        </div>
+                        <div class="i-stat">
+                            <div class="num">11</div>
+                            <div class="lbl">Topics Covered</div>
+                        </div>
+                        <div class="i-stat">
+                            <div class="num">50+</div>
+                            <div class="lbl">Practice Programs</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+       FAQ
+  ═══════════════════════════════════════════════════ -->
+    <section id="faq">
+        <div class="container">
+            <div class="text-center mb-2" data-aos="fade-up">
+                <span class="section-tag">Help</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle mx-auto">Quick answers to the most common questions about learning C.</p>
+            </div>
+            <div class="faq-list" data-aos="fade-up" data-aos-delay="100">
+                <div class="faq-item">
+                    <div class="faq-q">Do I need prior programming experience to learn C? <i
+                            class="bi bi-plus faq-icon"></i></div>
+                    <div class="faq-a">No! C is great as a first language. Start from the Introduction topic and work
+                        your way through. The explanations here are beginner-friendly.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What software do I need to run C programs? <i class="bi bi-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-a">You need a C compiler like GCC. On Windows, install MinGW or use an IDE like
+                        Code::Blocks or Dev-C++. On Linux/Mac, GCC is usually pre-installed. You can also use online
+                        compilers like OnlineGDB or Repl.it.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How is C different from C++? <i class="bi bi-plus faq-icon"></i></div>
+                    <div class="faq-a">C is a procedural language — programs are sequences of instructions. C++ extends
+                        C with object-oriented features like classes, inheritance, and polymorphism. Learning C first
+                        makes C++ much easier to understand.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What is a pointer in C? <i class="bi bi-plus faq-icon"></i></div>
+                    <div class="faq-a">A pointer is a variable that stores the memory address of another variable. For
+                        example: int *p = &x; means p holds the address of x. Pointers are one of C's most powerful —
+                        and most tricky — features.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How long does it take to learn C? <i class="bi bi-plus faq-icon"></i></div>
+                    <div class="faq-a">With consistent practice (1–2 hours/day), you can grasp the fundamentals in 4–6
+                        weeks. Mastering advanced topics like pointers and memory management may take a few months of
+                        practice.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Why do array indexes start from 0 in C? <i class="bi bi-plus faq-icon"></i></div>
+                    <div class="faq-a">In C, an array name is a pointer to the first element. The index represents an
+                        offset from that address. Since the first element is 0 bytes away from the start, its index is
+                        0.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════ -->
+    <footer>
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand"><i class="bi bi-braces"></i> Learn<span>C</span></div>
+                    <p class="tagline">A free, structured C programming learning resource built for students. Clear
+                        explanations, real examples, and hands-on practice.</p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-heading">Topics</div>
+                    <ul class="footer-links">
+                        <li><a href="Intro.html"><i class="bi bi-chevron-right"></i>Introduction</a></li>
+                        <li><a href="Variable.html"><i class="bi bi-chevron-right"></i>Variables</a></li>
+                        <li><a href="Operator.html"><i class="bi bi-chevron-right"></i>Operators</a></li>
+                        <li><a href="Datatype.html"><i class="bi bi-chevron-right"></i>Data Types</a></li>
+                        <li><a href="Loop.html"><i class="bi bi-chevron-right"></i>Loops</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-heading">More Topics</div>
+                    <ul class="footer-links">
+                        <li><a href="Conditional.html"><i class="bi bi-chevron-right"></i>Conditionals</a></li>
+                        <li><a href="array.html"><i class="bi bi-chevron-right"></i>Arrays</a></li>
+                        <li><a href="String.html"><i class="bi bi-chevron-right"></i>Strings</a></li>
+                        <li><a href="Function.html"><i class="bi bi-chevron-right"></i>Functions</a></li>
+                        <li><a href="Structure.html"><i class="bi bi-chevron-right"></i>Structures</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-heading">Quick Links</div>
+                    <ul class="footer-links">
+                        <li><a href="#quiz"><i class="bi bi-patch-question"></i>Take a Quiz</a></li>
+                        <li><a href="#runner"><i class="bi bi-play-circle"></i>Code Runner</a></li>
+                        <li><a href="#progress-section"><i class="bi bi-bar-chart"></i>Progress Tracker</a></li>
+                        <li><a href="faq.html"><i class="bi bi-question-circle"></i>FAQ</a></li>
+                    </ul>
+                    <div class="footer-heading mt-4">Contact</div>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="bi bi-envelope"></i>nikita@learncprog.com</a></li>
+                        <li><a href="#"><i class="bi bi-telephone"></i>+91 98766 29972</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 LearnC — Nikita Ma'am. All rights reserved.</p>
+                <div class="social-links">
+                    <a class="social-link" href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a class="social-link" href="#" title="YouTube"><i class="bi bi-youtube"></i></a>
+                    <a class="social-link" href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a class="social-link" href="#" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <script>
+        // ── INIT ─────────────────────────────────────────
+        AOS.init({ once: true, offset: 60 });
+        hljs.highlightAll();
+
+        // ── CURSOR ───────────────────────────────────────
+        const cursor = document.getElementById('cursor');
+        const ring = document.getElementById('cursorRing');
+        let mx = 0, my = 0, rx = 0, ry = 0;
+        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx - 6 + 'px'; cursor.style.top = my - 6 + 'px'; });
+        (function animRing() {
+            rx += (mx - rx - 18) * 0.12; ry += (my - ry - 18) * 0.12;
+            ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+            requestAnimationFrame(animRing);
+        })();
+        document.querySelectorAll('a,button,[onclick]').forEach(el => {
+            el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2)'; ring.style.opacity = '0.2'; });
+            el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; ring.style.opacity = '0.5'; });
+        });
+
+        // ── DARK MODE ─────────────────────────────────────
+        const html = document.documentElement;
+        const toggle = document.getElementById('themeToggle');
+        const saved = localStorage.getItem('learncTheme') || 'light';
+        html.setAttribute('data-theme', saved);
+        toggle.addEventListener('click', () => {
+            const t = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', t);
+            localStorage.setItem('learncTheme', t);
+        });
+
+        // ── SEARCH ───────────────────────────────────────
+        const topics = [
+            { title: 'Introduction to C', url: 'Intro.html', icon: 'bi-play-circle', desc: 'History, structure, Hello World' },
+            { title: 'Variables', url: 'Variable.html', icon: 'bi-box-seam', desc: 'Declaring and using variables' },
+            { title: 'Operators', url: 'Operator.html', icon: 'bi-plus-slash-minus', desc: 'Arithmetic, logical, bitwise' },
+            { title: 'Data Types', url: 'Datatype.html', icon: 'bi-diagram-3', desc: 'int, float, char, double' },
+            { title: 'Conditional Statements', url: 'Conditional.html', icon: 'bi-signpost-split', desc: 'if, else, switch-case' },
+            { title: 'Control Statements', url: 'ControlStatement.html', icon: 'bi-arrow-repeat', desc: 'break, continue, goto' },
+            { title: 'Loops', url: 'Loop.html', icon: 'bi-arrow-clockwise', desc: 'for, while, do-while' },
+            { title: 'Arrays', url: 'array.html', icon: 'bi-grid-3x3', desc: '1D and 2D arrays' },
+            { title: 'Strings', url: 'String.html', icon: 'bi-type', desc: 'String functions' },
+            { title: 'Functions', url: 'Function.html', icon: 'bi-braces-asterisk', desc: 'Defining and calling functions' },
+            { title: 'Structures', url: 'Structure.html', icon: 'bi-building', desc: 'User-defined data types' },
+            { title: 'Quiz', url: '#quiz', icon: 'bi-patch-question', desc: 'Test your C knowledge' },
+            { title: 'Code Runner', url: '#runner', icon: 'bi-play-circle', desc: 'Run C code in browser' },
+            { title: 'FAQ', url: 'faq.html', icon: 'bi-question-circle', desc: 'Common questions answered' },
+        ];
+
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+
+        searchInput.addEventListener('input', () => {
+            const q = searchInput.value.trim().toLowerCase();
+            if (!q) { searchResults.style.display = 'none'; return; }
+            const found = topics.filter(t => t.title.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q));
+            if (!found.length) { searchResults.style.display = 'none'; return; }
+            searchResults.innerHTML = found.map(t =>
+                `<a href="${t.url}"><i class="bi ${t.icon}"></i><span><strong>${t.title}</strong><br><small style="color:var(--text3)">${t.desc}</small></span></a>`
+            ).join('');
+            searchResults.style.display = 'block';
+        });
+        document.addEventListener('click', e => { if (!e.target.closest('.nav-search')) searchResults.style.display = 'none'; });
+
+        // ── TOPIC FILTER ─────────────────────────────────
+        document.getElementById('filterTabs').addEventListener('click', e => {
+            const btn = e.target.closest('.filter-tab');
+            if (!btn) return;
+            document.querySelectorAll('#filterTabs .filter-tab').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            document.querySelectorAll('#topicsGrid .topic-card').forEach(card => {
+                const show = filter === 'all' || card.dataset.level === filter;
+                card.style.display = show ? 'block' : 'none';
+            });
+        });
+
+        // ── SCROLL TO TOP ─────────────────────────────────
+        const stBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            stBtn.classList.toggle('show', window.scrollY > 400);
+        });
+        stBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // ── FAQ ───────────────────────────────────────────
+        document.querySelectorAll('.faq-q').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.closest('.faq-item');
+                item.classList.toggle('open');
+            });
+        });
+
+        // ── CODE RUNNER ──────────────────────────────────
+        const snippets = {
+            hello: `#include <stdio.h>\n\nint main() {\n    printf("Hello, World!\\n");\n    printf("Welcome to C Programming!\\n");\n    return 0;\n}`,
+            array: `#include <stdio.h>\n\nint main() {\n    int nums[5] = {10, 20, 30, 40, 50};\n    int sum = 0;\n\n    for (int i = 0; i < 5; i++) {\n        printf("nums[%d] = %d\\n", i, nums[i]);\n        sum += nums[i];\n    }\n    printf("Sum = %d\\n", sum);\n    return 0;\n}`,
+            loop: `#include <stdio.h>\n\nint main() {\n    // Multiplication table of 5\n    printf("Table of 5:\\n");\n    for (int i = 1; i <= 10; i++) {\n        printf("5 x %2d = %2d\\n", i, 5*i);\n    }\n    return 0;\n}`,
+            function: `#include <stdio.h>\n\nint add(int a, int b) {\n    return a + b;\n}\n\nint factorial(int n) {\n    if (n <= 1) return 1;\n    return n * factorial(n - 1);\n}\n\nint main() {\n    printf("add(3, 7) = %d\\n", add(3, 7));\n    printf("factorial(5) = %d\\n", factorial(5));\n    return 0;\n}`
+        };
+
+        const codeEditor = document.getElementById('codeEditor');
+        codeEditor.value = snippets.hello;
+
+        function loadSnippet(name) {
+            codeEditor.value = snippets[name];
+            document.getElementById('outputArea').textContent = 'Click "Run" to execute…';
+            document.querySelectorAll('.runner-controls .filter-tab, .d-flex .filter-tab').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function runCode() {
+            const code = codeEditor.value;
+            const outEl = document.getElementById('outputArea');
+            const status = document.getElementById('runStatus');
+
+            outEl.textContent = '';
+            status.textContent = '⏳ Running…';
+            status.style.color = '#febc2e';
+
+            setTimeout(() => {
+                const output = simulateC(code);
+                outEl.textContent = output;
+                status.textContent = '✓ Done';
+                status.style.color = '#28c840';
+                setTimeout(() => { status.textContent = ''; }, 2000);
+            }, 400);
+        }
+
+        function clearAll() {
+            document.getElementById('outputArea').textContent = 'Click "Run" to execute your code…';
+            codeEditor.value = '';
+            codeEditor.focus();
+        }
+
+        function simulateC(code) {
+            const lines = [];
+            // Extract printf strings
+            const printfRe = /printf\s*\(\s*"((?:[^"\\]|\\.)*)"\s*(?:,\s*([^)]*))?\)/g;
+            let m;
+            while ((m = printfRe.exec(code)) !== null) {
+                let fmt = m[1];
+                let args = m[2] ? m[2].split(',').map(a => a.trim()) : [];
+
+                // Evaluate simple expressions
+                args = args.map(a => {
+                    try {
+                        // Handle array index like nums[0]
+                        const arrM = a.match(/(\w+)\[(\d+)\]/);
+                        if (arrM) {
+                            const arrName = arrM[1], idx = parseInt(arrM[2]);
+                            const decl = code.match(new RegExp(`int\\s+${arrName}\\s*\\[\\d*\\]\\s*=\\s*\\{([^}]+)\\}`));
+                            if (decl) {
+                                const vals = decl[1].split(',').map(v => parseInt(v.trim()));
+                                return isNaN(vals[idx]) ? a : vals[idx];
+                            }
+                        }
+                        // Simple arithmetic
+                        const clean = a.replace(/[^0-9+\-*\/()%. ]/g, '');
+                        if (/^[\d+\-*\/()%. ]+$/.test(clean) && clean.trim()) return eval(clean);
+                    } catch (e) { }
+                    return a;
+                });
+
+                // Replace format specifiers
+                let out = fmt;
+                let ai = 0;
+                out = out.replace(/%[-0-9]*[disfcux]/g, () => args[ai++] !== undefined ? args[ai - 1] : '?');
+                // Escape sequences
+                out = out.replace(/\\n/g, '\n').replace(/\\t/g, '\t').replace(/\\r/g, '').replace(/\\\\/g, '\\');
+                lines.push(out);
+            }
+
+            if (!lines.length) {
+                // Check for puts
+                const putsRe = /puts\s*\(\s*"([^"]*)"\s*\)/g;
+                while ((m = putsRe.exec(code)) !== null) lines.push(m[1]);
+            }
+
+            return lines.length
+                ? lines.join('')
+                : '⚠️ No output detected.\n\nThis simulator handles printf() statements.\nFor complex programs, use GCC or OnlineGDB.';
+        }
+
+        // ── QUIZ ─────────────────────────────────────────
+        const quizData = [
+            { q: 'Which header file is required to use printf() in C?', opts: ['<stdlib.h>', '<stdio.h>', '<string.h>', '<math.h>'], ans: 1, exp: '<stdio.h> (Standard Input Output) contains the declaration of printf() and scanf().' },
+            { q: 'What is the correct syntax to declare an integer variable named "age" in C?', opts: ['int age;', 'integer age;', 'var age;', 'Age int;'], ans: 0, exp: 'In C, the data type comes first: int age; declares an integer variable.' },
+            { q: 'What is the output of: printf("%d", 5 + 3 * 2);', opts: ['16', '11', '13', '10'], ans: 1, exp: 'Multiplication has higher precedence than addition. 3*2=6, then 5+6=11.' },
+            { q: 'Which loop is guaranteed to execute at least once?', opts: ['for loop', 'while loop', 'do-while loop', 'None of them'], ans: 2, exp: 'do-while checks the condition AFTER executing the body, so it always runs at least once.' },
+            { q: 'What does the sizeof() operator return?', opts: ['Value of variable', 'Memory address', 'Size in bytes', 'Number of elements'], ans: 2, exp: 'sizeof() returns the size of a variable or data type in bytes. E.g., sizeof(int) = 4.' },
+            { q: 'In C, array indexes start from:', opts: ['1', '0', '-1', 'Depends on compiler'], ans: 1, exp: 'Arrays in C are 0-indexed. The first element is at index 0.' },
+            { q: 'Which symbol is used for single-line comments in C?', opts: ['#', '//', '/* */', '--'], ans: 1, exp: '// is used for single-line comments. /* */ is used for multi-line comments.' },
+            { q: 'What is the return type of main() in C?', opts: ['void', 'int', 'char', 'float'], ans: 1, exp: 'main() returns int. return 0; signals successful execution to the OS.' },
+            { q: 'Which keyword is used to exit a loop in C?', opts: ['exit', 'stop', 'break', 'end'], ans: 2, exp: 'break; immediately exits the nearest enclosing loop or switch statement.' },
+            { q: 'What is a pointer in C?', opts: ['A value storing variable', 'A variable storing a memory address', 'A function parameter', 'A loop counter'], ans: 1, exp: 'A pointer is a variable that stores the memory address of another variable.' },
+        ];
+
+        let qIdx = 0, score = 0, answered = false;
+
+        function renderQuiz() {
+            const cont = document.getElementById('quizContainer');
+            const res = document.getElementById('quizResult');
+            res.classList.remove('show');
+            cont.style.display = 'block';
+
+            if (qIdx >= quizData.length) { showResult(); return; }
+            const q = quizData[qIdx];
+            const pct = Math.round((qIdx / quizData.length) * 100);
+            answered = false;
+
+            cont.innerHTML = `
+      <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${pct}%"></div></div>
+      <div class="quiz-q-num">Question ${qIdx + 1} of ${quizData.length}</div>
+      <div class="quiz-question">${q.q}</div>
+      <div class="quiz-options" id="opts">
+        ${q.opts.map((o, i) => `
+          <div class="quiz-option" data-idx="${i}" onclick="selectOpt(this,${i})">
+            <div class="opt-letter">${String.fromCharCode(65 + i)}</div>${o}
+          </div>`).join('')}
+      </div>
+      <div class="quiz-feedback" id="qFeedback"></div>
+      <div class="quiz-nav">
+        <span class="quiz-score">Score: ${score} / ${qIdx}</span>
+        <button class="quiz-btn" id="nextBtn" onclick="nextQ()" disabled>
+          ${qIdx + 1 < quizData.length ? 'Next <i class="bi bi-arrow-right"></i>' : 'See Results <i class="bi bi-trophy"></i>'}
+        </button>
+      </div>`;
+        }
+
+        function selectOpt(el, idx) {
+            if (answered) return;
+            answered = true;
+            const q = quizData[qIdx];
+            const fb = document.getElementById('qFeedback');
+            document.querySelectorAll('.quiz-option').forEach(o => o.classList.add('disabled'));
+            if (idx === q.ans) {
+                el.classList.add('correct');
+                score++;
+                fb.textContent = '✅ Correct! ' + q.exp;
+                fb.className = 'quiz-feedback show correct-fb';
+            } else {
+                el.classList.add('wrong');
+                document.querySelectorAll('.quiz-option')[q.ans].classList.add('correct');
+                fb.textContent = '❌ Wrong. ' + q.exp;
+                fb.className = 'quiz-feedback show wrong-fb';
+            }
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        function nextQ() { qIdx++; renderQuiz(); }
+
+        function showResult() {
+            document.getElementById('quizContainer').style.display = 'none';
+            const res = document.getElementById('quizResult');
+            const pct = Math.round((score / quizData.length) * 100);
+            const emoji = pct >= 80 ? '🏆' : pct >= 60 ? '🎉' : pct >= 40 ? '👍' : '📚';
+            const msg = pct >= 80 ? 'Outstanding! You know C really well!' : pct >= 60 ? 'Great job! Keep practicing!' : pct >= 40 ? 'Good effort! Review the topics and try again.' : 'Keep learning! Go through the topics and retake the quiz.';
+            res.innerHTML = `
+      <div class="result-emoji">${emoji}</div>
+      <div class="result-score-big">${score} / ${quizData.length}</div>
+      <p class="result-msg">${msg}</p>
+      <div style="font-size:2rem;font-weight:800;color:var(--primary);margin-bottom:0.5rem">${pct}%</div>
+      <button class="quiz-btn mx-auto" onclick="restartQuiz()" style="justify-content:center">
+        <i class="bi bi-arrow-counterclockwise"></i> Try Again
+      </button>`;
+            res.classList.add('show');
+        }
+
+        function restartQuiz() { qIdx = 0; score = 0; renderQuiz(); }
+        renderQuiz();
+
+        // ── PROGRESS TRACKER ─────────────────────────────
+        const progTopics = ['Introduction', 'Variables', 'Operators', 'Data Types', 'Conditionals', 'Control Statements', 'Loops', 'Arrays', 'Strings', 'Functions', 'Structures'];
+        const progURLs = ['Intro.html', 'Variable.html', 'Operator.html', 'Datatype.html', 'Conditional.html', 'ControlStatement.html', 'Loop.html', 'array.html', 'String.html', 'Function.html', 'Structure.html'];
+
+        let progState = JSON.parse(localStorage.getItem('learncProgress') || '{}');
+
+        function renderProgress() {
+            const grid = document.getElementById('progressGrid');
+            grid.innerHTML = progTopics.map((t, i) => `
+      <div class="prog-item ${progState[i] ? 'done' : ''}" onclick="toggleProg(${i})" title="Mark as done">
+        <div class="prog-check"><i class="bi bi-check"></i></div>
+        <span>${t}</span>
+      </div>`).join('');
+            const done = Object.values(progState).filter(Boolean).length;
+            const pct = Math.round((done / progTopics.length) * 100);
+            document.getElementById('progressFill').style.width = pct + '%';
+            document.getElementById('progressText').textContent = `${done} of ${progTopics.length} topics completed`;
+            document.getElementById('progressPct').textContent = pct + '%';
+        }
+
+        function toggleProg(i) {
+            progState[i] = !progState[i];
+            localStorage.setItem('learncProgress', JSON.stringify(progState));
+            renderProgress();
+        }
+        renderProgress();
+
+    </script>
+</body>
+
+</html>

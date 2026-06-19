@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conditional Statements in C — LearnC</title>
+    <meta name="description" content="Learn Conditional Statements in C — if, else, switch with Nikita Ma'am" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <button id="goTop"><i class="bi bi-arrow-up"></i></button>
+
+    <nav class="lc-nav">
+        <div class="container">
+            <a class="nav-brand" href="index.html"><i class="bi bi-braces"></i>Learn<span>C</span></a>
+            <div class="nav-links">
+                <a class="nav-a" href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a class="nav-a active">Topics <i class="bi bi-chevron-down" style="font-size:.7rem"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="Intro.html"><i class="bi bi-play-circle"></i>Introduction</a>
+                        <a href="Variable.html"><i class="bi bi-box-seam"></i>Variables</a>
+                        <a href="Operator.html"><i class="bi bi-plus-slash-minus"></i>Operators</a>
+                        <a href="Datatype.html"><i class="bi bi-diagram-3"></i>Data Types</a>
+                        <a href="Conditional.html"><i class="bi bi-signpost-split"></i>Conditional Stmts</a>
+                        <a href="ControlStatement.html"><i class="bi bi-arrow-repeat"></i>Control Stmts</a>
+                        <a href="Loop.html"><i class="bi bi-arrow-clockwise"></i>Loops</a>
+                        <a href="array.html"><i class="bi bi-grid-3x3-gap"></i>Arrays</a>
+                        <a href="String.html"><i class="bi bi-type"></i>Strings</a>
+                        <a href="Function.html"><i class="bi bi-braces-asterisk"></i>Functions</a>
+                        <a href="Structure.html"><i class="bi bi-building"></i>Structures</a>
+                    </div>
+                </div>
+                <a class="nav-a" href="faq.html">FAQ</a>
+                <a class="nav-a" href="index.html#quiz">Quiz</a>
+                <a class="nav-a" href="index.html#runner">Code Runner</a>
+            </div>
+            <div class="nav-search" style="margin-left:1rem">
+                <i class="bi bi-search si"></i>
+                <input type="text" id="sInput" placeholder="Search topics…" autocomplete="off" />
+                <div class="search-drop" id="sDrop"></div>
+            </div>
+            <div class="theme-btn" id="themeBtn" title="Toggle dark/light" style="margin-left:.75rem"></div>
+            <button class="nav-ham" id="hamBtn"><i class="bi bi-list"></i></button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html"><i class="bi bi-house"></i> Home</a>
+            <a href="Intro.html"><i class="bi bi-play-circle"></i> Introduction</a>
+            <a href="Variable.html"><i class="bi bi-box-seam"></i> Variables</a>
+            <a href="Operator.html"><i class="bi bi-plus-slash-minus"></i> Operators</a>
+            <a href="Datatype.html"><i class="bi bi-diagram-3"></i> Data Types</a>
+            <a href="Conditional.html"><i class="bi bi-signpost-split"></i> Conditional Stmts</a>
+            <a href="ControlStatement.html"><i class="bi bi-arrow-repeat"></i> Control Stmts</a>
+            <a href="Loop.html"><i class="bi bi-arrow-clockwise"></i> Loops</a>
+            <a href="array.html"><i class="bi bi-grid-3x3-gap"></i> Arrays</a>
+            <a href="String.html"><i class="bi bi-type"></i> Strings</a>
+            <a href="Function.html"><i class="bi bi-braces-asterisk"></i> Functions</a>
+            <a href="Structure.html"><i class="bi bi-building"></i> Structures</a>
+            <a href="faq.html"><i class="bi bi-question-circle"></i> FAQ</a>
+            <a href="index.html#quiz"><i class="bi bi-patch-question"></i> Quiz</a>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="lc-breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="bi bi-chevron-right"></i>
+                <span>Conditional Statements</span>
+            </div>
+            <div class="hero-tag"><i class="bi bi-signpost-split-fill"></i> Topic 5 of 11</div>
+            <h1>Conditional Statements in <span class="hl">C Programming</span></h1>
+            <p class="lead">Conditional statements allow a program to make decisions and execute different code blocks
+                based on whether a condition is true or false.</p>
+        </div>
+    </section>
+
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-8">
+
+                    <!-- What are Conditional Statements -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-signpost-split-fill"></i>What are Conditional Statements?</h3>
+                        <p>A <strong>conditional statement</strong> controls the flow of a program by executing a block
+                            of code only when a certain condition is met. Without them, programs would just run from top
+                            to bottom with no decisions.</p>
+                        <ul>
+                            <li>C evaluates conditions as <strong>true (non-zero)</strong> or <strong>false
+                                    (0)</strong>.</li>
+                            <li>Conditional statements use relational and logical operators.</li>
+                            <li>Types: <code>if</code>, <code>if-else</code>, <code>if-else-if</code>,
+                                <code>nested if</code>, <code>switch</code>.</li>
+                        </ul>
+                    </div>
+
+                    <!-- if statement -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-1-circle-fill"></i>if Statement</h3>
+                        <p>Executes the block only when the condition is <strong>true</strong>. Syntax:
+                            <code>if (condition) { }</code></p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">if_stmt.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int marks = 75;
+
+    if (marks >= 40) {
+        printf("You have passed!\n");
+    }
+
+    if (marks >= 90) {
+        printf("Distinction!\n");  // This won't print
+    }
+
+    printf("Program continues...\n");
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>You have passed!<br>Program continues...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- if-else -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-2-circle-fill"></i>if-else Statement</h3>
+                        <p>Executes one block if the condition is true, another if it's false. Syntax:
+                            <code>if (condition) { } else { }</code></p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">if_else.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int num = -5;
+
+    if (num > 0) {
+        printf("%d is Positive\n", num);
+    } else {
+        printf("%d is Negative or Zero\n", num);
+    }
+
+    // Check even or odd
+    int n = 14;
+    if (n % 2 == 0) {
+        printf("%d is Even\n", n);
+    } else {
+        printf("%d is Odd\n", n);
+    }
+
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>-5 is Negative or Zero<br>14 is Even</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- if-else-if ladder -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-3-circle-fill"></i>if-else-if Ladder</h3>
+                        <p>Used to check multiple conditions one by one. The first true condition's block executes, then
+                            the rest are skipped.</p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">ladder.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int marks = 82;
+    char grade;
+
+    if (marks >= 90) {
+        grade = 'A';
+    } else if (marks >= 80) {
+        grade = 'B';
+    } else if (marks >= 70) {
+        grade = 'C';
+    } else if (marks >= 60) {
+        grade = 'D';
+    } else {
+        grade = 'F';
+    }
+
+    printf("Marks: %d => Grade: %c\n", marks, grade);
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>Marks: 82 => Grade: B</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nested if -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-4-circle-fill"></i>Nested if</h3>
+                        <p>An <code>if</code> inside another <code>if</code>. Used to check multiple related conditions.
+                        </p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">nested_if.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 10, b = 20, c = 15;
+    int largest;
+
+    if (a > b) {
+        if (a > c) {
+            largest = a;
+        } else {
+            largest = c;
+        }
+    } else {
+        if (b > c) {
+            largest = b;
+        } else {
+            largest = c;
+        }
+    }
+
+    printf("Largest = %d\n", largest);
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>Largest = 20</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- switch -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-5-circle-fill"></i>switch-case Statement</h3>
+                        <p>Efficiently handles multiple fixed values of a variable. Cleaner than a long if-else-if
+                            ladder when checking one variable against constants. Always use <code>break</code> to
+                            prevent fall-through.</p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">switch.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int day = 3;
+
+    switch (day) {
+        case 1:
+            printf("Monday\n");
+            break;
+        case 2:
+            printf("Tuesday\n");
+            break;
+        case 3:
+            printf("Wednesday\n");
+            break;
+        case 4:
+            printf("Thursday\n");
+            break;
+        case 5:
+            printf("Friday\n");
+            break;
+        default:
+            printf("Weekend\n");
+    }
+
+    // switch with char
+    char op = '+';
+    int x = 10, y = 5;
+    switch (op) {
+        case '+': printf("Sum = %d\n", x + y); break;
+        case '-': printf("Diff = %d\n", x - y); break;
+        case '*': printf("Prod = %d\n", x * y); break;
+        case '/': printf("Div = %d\n", x / y); break;
+        default: printf("Unknown operator\n");
+    }
+
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>Wednesday<br>Sum = 15</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comparison Table -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-table"></i>if-else vs switch — When to Use?</h3>
+                        <table class="syn-table">
+                            <tr>
+                                <th>Feature</th>
+                                <th>if-else</th>
+                                <th>switch</th>
+                            </tr>
+                            <tr>
+                                <td>Condition type</td>
+                                <td>Any expression (ranges, logical)</td>
+                                <td>Only integer/char constants</td>
+                            </tr>
+                            <tr>
+                                <td>Range check</td>
+                                <td>✅ Supported</td>
+                                <td>❌ Not supported</td>
+                            </tr>
+                            <tr>
+                                <td>Readability</td>
+                                <td>OK for 2-3 conditions</td>
+                                <td>Better for many fixed values</td>
+                            </tr>
+                            <tr>
+                                <td>Fall-through</td>
+                                <td>No</td>
+                                <td>Yes (needs break)</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Practice -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-code-slash"></i>Practice Programs</h3>
+                        <div class="prog-accordion">
+                            <div class="prog-item-wrap">
+                                <div class="prog-q">1. Check if a year is a leap year <i class="bi bi-plus"></i></div>
+                                <div class="prog-body">
+                                    <div class="code-block">
+                                        <div class="cb-header">
+                                            <div class="cb-dot r"></div>
+                                            <div class="cb-dot y"></div>
+                                            <div class="cb-dot g"></div>
+                                            <span class="cb-fname">leap.c</span>
+                                            <button class="copy-btn">Copy</button>
+                                        </div>
+                                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    int year = 2024;
+    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+        printf("%d is a Leap Year\n", year);
+    } else {
+        printf("%d is NOT a Leap Year\n", year);
+    }
+    return 0;
+}</code></pre>
+                                        <div class="code-output-panel">
+                                            <div class="out-label">// Output</div>
+                                            <p>2024 is a Leap Year</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prog-item-wrap">
+                                <div class="prog-q">2. Find largest of three numbers <i class="bi bi-plus"></i></div>
+                                <div class="prog-body">
+                                    <div class="code-block">
+                                        <div class="cb-header">
+                                            <div class="cb-dot r"></div>
+                                            <div class="cb-dot y"></div>
+                                            <div class="cb-dot g"></div>
+                                            <span class="cb-fname">largest.c</span>
+                                            <button class="copy-btn">Copy</button>
+                                        </div>
+                                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    int a = 30, b = 55, c = 45;
+    if (a >= b && a >= c)
+        printf("Largest: %d\n", a);
+    else if (b >= a && b >= c)
+        printf("Largest: %d\n", b);
+    else
+        printf("Largest: %d\n", c);
+    return 0;
+}</code></pre>
+                                        <div class="code-output-panel">
+                                            <div class="out-label">// Output</div>
+                                            <p>Largest: 55</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prog-item-wrap">
+                                <div class="prog-q">3. Simple calculator using switch <i class="bi bi-plus"></i></div>
+                                <div class="prog-body">
+                                    <div class="code-block">
+                                        <div class="cb-header">
+                                            <div class="cb-dot r"></div>
+                                            <div class="cb-dot y"></div>
+                                            <div class="cb-dot g"></div>
+                                            <span class="cb-fname">calc.c</span>
+                                            <button class="copy-btn">Copy</button>
+                                        </div>
+                                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    float a = 20, b = 4;
+    char op = '/';
+    switch (op) {
+        case '+': printf("%.2f\n", a + b); break;
+        case '-': printf("%.2f\n", a - b); break;
+        case '*': printf("%.2f\n", a * b); break;
+        case '/':
+            if (b != 0) printf("%.2f\n", a / b);
+            else printf("Division by zero!\n");
+            break;
+        default: printf("Invalid operator\n");
+    }
+    return 0;
+}</code></pre>
+                                        <div class="code-output-panel">
+                                            <div class="out-label">// Output</div>
+                                            <p>5.00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-nav">
+                        <a class="tnav-btn" href="Datatype.html"><i class="bi bi-arrow-left"></i><span><span
+                                    class="lbl">Previous</span>Data Types</span></a>
+                        <a class="tnav-btn next" href="ControlStatement.html"><span><span class="lbl">Next</span>Control
+                                Statements</span><i class="bi bi-arrow-right"></i></a>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="concept-box" style="position:sticky;top:90px">
+                        <h3><i class="bi bi-list-ul"></i>In This Topic</h3>
+                        <ul>
+                            <li>What are Conditional Statements?</li>
+                            <li>if Statement</li>
+                            <li>if-else Statement</li>
+                            <li>if-else-if Ladder</li>
+                            <li>Nested if</li>
+                            <li>switch-case</li>
+                            <li>if-else vs switch</li>
+                            <li>Practice Programs</li>
+                        </ul>
+                        <div style="margin-top:1.5rem">
+                            <div class="tag-badge">Next Topic</div>
+                            <a href="ControlStatement.html"
+                                style="font-weight:700;color:var(--primary);display:flex;align-items:center;gap:8px">
+                                Control Statements <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="lc-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand"><i class="bi bi-braces"></i>Learn<span>C</span></div>
+                    <p class="footer-tagline">A free, structured C programming learning resource built for engineering
+                        students.</p>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer-head">Basics</div>
+                    <ul class="footer-ul">
+                        <li><a href="Intro.html"><i class="bi bi-chevron-right"></i>Introduction</a></li>
+                        <li><a href="Variable.html"><i class="bi bi-chevron-right"></i>Variables</a></li>
+                        <li><a href="Operator.html"><i class="bi bi-chevron-right"></i>Operators</a></li>
+                        <li><a href="Datatype.html"><i class="bi bi-chevron-right"></i>Data Types</a></li>
+                        <li><a href="Loop.html"><i class="bi bi-chevron-right"></i>Loops</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer-head">Advanced</div>
+                    <ul class="footer-ul">
+                        <li><a href="Conditional.html"><i class="bi bi-chevron-right"></i>Conditionals</a></li>
+                        <li><a href="array.html"><i class="bi bi-chevron-right"></i>Arrays</a></li>
+                        <li><a href="String.html"><i class="bi bi-chevron-right"></i>Strings</a></li>
+                        <li><a href="Function.html"><i class="bi bi-braces-asterisk"></i>Functions</a></li>
+                        <li><a href="Structure.html"><i class="bi bi-building"></i>Structures</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-head">Quick Links</div>
+                    <ul class="footer-ul">
+                        <li><a href="index.html#quiz"><i class="bi bi-patch-question"></i>Take a Quiz</a></li>
+                        <li><a href="index.html#runner"><i class="bi bi-play-circle"></i>Code Runner</a></li>
+                        <li><a href="index.html#progress-section"><i class="bi bi-bar-chart"></i>Progress Tracker</a>
+                        </li>
+                        <li><a href="faq.html"><i class="bi bi-question-circle"></i>FAQ Page</a></li>
+                    </ul>
+                    <div class="footer-head mt-3">Contact</div>
+                    <ul class="footer-ul">
+                        <li><a href="#"><i class="bi bi-envelope"></i>nikita@learnc.in</a></li>
+                        <li><a href="#"><i class="bi bi-telephone"></i>+91 98766 29972</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 LearnC — Nikita Ma'am. All rights reserved.</p>
+                <div class="socials">
+                    <a class="social-a" href="#"><i class="bi bi-instagram"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-youtube"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-facebook"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="js/topic.js"></script>
+</body>
+
+</html>

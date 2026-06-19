@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ - LearnC</title>
+    <meta name="description" content="Frequently asked questions for beginners learning C programming with LearnC." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <button id="goTop" title="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+    <nav class="lc-nav">
+        <div class="container">
+            <a class="nav-brand" href="index.html"><i class="bi bi-braces"></i>Learn<span>C</span></a>
+            <div class="nav-links">
+                <a class="nav-a" href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a class="nav-a">Topics <i class="bi bi-chevron-down" style="font-size:.7rem"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="Intro.html"><i class="bi bi-play-circle"></i>Introduction</a>
+                        <a href="Variable.html"><i class="bi bi-box-seam"></i>Variables</a>
+                        <a href="Operator.html"><i class="bi bi-plus-slash-minus"></i>Operators</a>
+                        <a href="Datatype.html"><i class="bi bi-diagram-3"></i>Data Types</a>
+                        <a href="Conditional.html"><i class="bi bi-signpost-split"></i>Conditional Stmts</a>
+                        <a href="ControlStatement.html"><i class="bi bi-arrow-repeat"></i>Control Stmts</a>
+                        <a href="Loop.html"><i class="bi bi-arrow-clockwise"></i>Loops</a>
+                        <a href="array.html"><i class="bi bi-grid-3x3-gap"></i>Arrays</a>
+                        <a href="String.html"><i class="bi bi-type"></i>Strings</a>
+                        <a href="Function.html"><i class="bi bi-braces-asterisk"></i>Functions</a>
+                        <a href="Structure.html"><i class="bi bi-building"></i>Structures</a>
+                    </div>
+                </div>
+                <a class="nav-a active" href="faq.html">FAQ</a>
+                <a class="nav-a" href="index.html#quiz">Quiz</a>
+                <a class="nav-a" href="index.html#runner">Code Runner</a>
+            </div>
+            <div class="nav-search" style="margin-left:1rem">
+                <i class="bi bi-search si"></i>
+                <input type="text" id="sInput" placeholder="Search topics..." autocomplete="off" />
+                <div class="search-drop" id="sDrop"></div>
+            </div>
+            <div class="theme-btn" id="themeBtn" title="Toggle dark/light" style="margin-left:.75rem"></div>
+            <button class="nav-ham" id="hamBtn"><i class="bi bi-list"></i></button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html"><i class="bi bi-house"></i> Home</a>
+            <a href="Intro.html"><i class="bi bi-play-circle"></i> Introduction</a>
+            <a href="Variable.html"><i class="bi bi-box-seam"></i> Variables</a>
+            <a href="Operator.html"><i class="bi bi-plus-slash-minus"></i> Operators</a>
+            <a href="Datatype.html"><i class="bi bi-diagram-3"></i> Data Types</a>
+            <a href="Conditional.html"><i class="bi bi-signpost-split"></i> Conditional Stmts</a>
+            <a href="ControlStatement.html"><i class="bi bi-arrow-repeat"></i> Control Stmts</a>
+            <a href="Loop.html"><i class="bi bi-arrow-clockwise"></i> Loops</a>
+            <a href="array.html"><i class="bi bi-grid-3x3-gap"></i> Arrays</a>
+            <a href="String.html"><i class="bi bi-type"></i> Strings</a>
+            <a href="Function.html"><i class="bi bi-braces-asterisk"></i> Functions</a>
+            <a href="Structure.html"><i class="bi bi-building"></i> Structures</a>
+            <a href="faq.html"><i class="bi bi-question-circle"></i> FAQ</a>
+            <a href="index.html#quiz"><i class="bi bi-patch-question"></i> Quiz</a>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="lc-breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="bi bi-chevron-right"></i>
+                <span>FAQ</span>
+            </div>
+            <div class="hero-tag"><i class="bi bi-question-circle-fill"></i> Beginner Help</div>
+            <h1>Frequently Asked <span class="hl">Questions</span></h1>
+            <p class="lead">Quick answers for common doubts students face while learning C programming, setting up a
+                compiler, using examples, and practicing the right way.</p>
+            <div class="topic-pills">
+                <a class="topic-pill" href="index.html#topics">Topics</a>
+                <a class="topic-pill" href="index.html#quiz">Quiz</a>
+                <a class="topic-pill" href="index.html#runner">Code Runner</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <details class="faq-details" open>
+                        <summary>Do I need programming experience before learning C?</summary>
+                        <div class="faq-body">
+                            No. C can be your first programming language. Start with Introduction, Variables, Data
+                            Types, Operators, and then move to Conditionals and Loops. Do not rush arrays and functions
+                            until loops feel comfortable.
+                        </div>
+                    </details>
+
+                    <details class="faq-details">
+                        <summary>Which software should I install to run C programs?</summary>
+                        <div class="faq-body">
+                            You need a C compiler. On Windows, common choices are GCC through MinGW-w64, Code::Blocks,
+                            Dev-C++, or VS Code with a GCC setup. Online compilers are also fine for practice, but
+                            installing GCC locally helps you understand real compilation.
+                        </div>
+                    </details>
+
+                    <details class="faq-details">
+                        <summary>Why does the LearnC code runner not run every C program?</summary>
+                        <div class="faq-body">
+                            The homepage runner is a simple browser simulator for common <code>printf()</code> output.
+                            It is useful for quick examples, but it is not a full compiler. For programs using
+                            <code>scanf()</code>, files, advanced expressions, or complex logic, use GCC or an online C
+                            compiler.
+                        </div>
+                    </details>
+
+                    <details class="faq-details">
+                        <summary>Why do arrays start from index 0?</summary>
+                        <div class="faq-body">
+                            In C, an array name represents the address of the first element. Index 0 means "move zero
+                            positions from the first element." Index 1 means "move one position ahead." Simple Hinglish:
+                            first box ka distance first box se 0 hota hai, isliye first element ka index 0 hota hai.
+                        </div>
+                    </details>
+
+                    <details class="faq-details">
+                        <summary>What is the difference between conditionals and loops?</summary>
+                        <div class="faq-body">
+                            A conditional statement makes a decision once: run this block or skip it. A loop repeats a
+                            block while a condition is true. Use <code>if</code> for decisions and <code>for</code>,
+                            <code>while</code>, or <code>do-while</code> for repetition.
+                        </div>
+                    </details>
+
+                    <details class="faq-details">
+                        <summary>When should I use functions?</summary>
+                        <div class="faq-body">
+                            Use a function when a task has a clear name and may be reused, such as calculating a sum,
+                            finding a largest number, printing a menu, or checking even/odd. Functions keep your
+                            <code>main()</code> smaller and easier to read.
+                        </div>
+                    </details>
+
+                    <details class="faq-details">
+                        <summary>Why does scanf need the ampersand symbol?</summary>
+                        <div class="faq-body">
+                            <code>scanf()</code> needs the memory address where it should store input. For normal
+                            variables, use <code>&amp;</code>. For example:
+                            <div class="code-block">
+                                <div class="cb-header">
+                                    <div class="cb-dot r"></div>
+                                    <div class="cb-dot y"></div>
+                                    <div class="cb-dot g"></div>
+                                    <span class="cb-fname">scanf_example.c</span>
+                                    <button class="copy-btn">Copy</button>
+                                </div>
+                                <pre><code class="language-c">int age;
+scanf("%d", &amp;age);   // correct</code></pre>
+                            </div>
+                            For strings, the array name already acts like an address, so <code>scanf("%s", name);</code>
+                            is used.
+                        </div>
+                    </details>
+
+                    <details class="faq-details">
+                        <summary>What are the most common beginner errors in C?</summary>
+                        <div class="faq-body">
+                            Common errors include missing semicolons, using <code>=</code> instead of <code>==</code> in
+                            conditions, forgetting <code>&amp;</code> in <code>scanf()</code>, accessing an array outside
+                            its size, and writing infinite loops accidentally. Read compiler messages slowly; they often
+                            point near the problem line.
+                        </div>
+                    </details>
+
+                    <details class="faq-details">
+                        <summary>How should I practice after reading each topic?</summary>
+                        <div class="faq-body">
+                            First run the given examples, then change numbers and conditions, then write the practice
+                            programs without looking at the answer. Best pattern: read, type, run, break, fix. Debugging
+                            is where real learning happens.
+                        </div>
+                    </details>
+
+                    <details class="faq-details">
+                        <summary>How long does it take to learn C basics?</summary>
+                        <div class="faq-body">
+                            With 1 to 2 hours of consistent practice daily, most students can understand the basics in
+                            4 to 6 weeks. Strong command takes longer because it needs many small programs, not just
+                            reading notes.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="concept-box" style="position:sticky;top:90px">
+                        <h3><i class="bi bi-map"></i>Suggested Path</h3>
+                        <ol>
+                            <li><a href="Intro.html">Introduction</a></li>
+                            <li><a href="Variable.html">Variables</a> and <a href="Datatype.html">Data Types</a></li>
+                            <li><a href="Operator.html">Operators</a></li>
+                            <li><a href="Conditional.html">Conditionals</a></li>
+                            <li><a href="Loop.html">Loops</a></li>
+                            <li><a href="array.html">Arrays</a> and <a href="String.html">Strings</a></li>
+                            <li><a href="Function.html">Functions</a> and <a href="Structure.html">Structures</a></li>
+                        </ol>
+                        <div class="callout tip">
+                            <strong>Tip:</strong> One topic per day with 3 to 5 programs is better than reading many
+                            topics without practice.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="lc-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand"><i class="bi bi-braces"></i>Learn<span>C</span></div>
+                    <p class="footer-tagline">A free, structured C programming learning resource built for engineering
+                        students.</p>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer-head">Basics</div>
+                    <ul class="footer-ul">
+                        <li><a href="Intro.html"><i class="bi bi-chevron-right"></i>Introduction</a></li>
+                        <li><a href="Variable.html"><i class="bi bi-chevron-right"></i>Variables</a></li>
+                        <li><a href="Operator.html"><i class="bi bi-chevron-right"></i>Operators</a></li>
+                        <li><a href="Datatype.html"><i class="bi bi-chevron-right"></i>Data Types</a></li>
+                        <li><a href="Loop.html"><i class="bi bi-chevron-right"></i>Loops</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer-head">Advanced</div>
+                    <ul class="footer-ul">
+                        <li><a href="Conditional.html"><i class="bi bi-chevron-right"></i>Conditionals</a></li>
+                        <li><a href="array.html"><i class="bi bi-chevron-right"></i>Arrays</a></li>
+                        <li><a href="String.html"><i class="bi bi-chevron-right"></i>Strings</a></li>
+                        <li><a href="Function.html"><i class="bi bi-chevron-right"></i>Functions</a></li>
+                        <li><a href="Structure.html"><i class="bi bi-chevron-right"></i>Structures</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-head">Quick Links</div>
+                    <ul class="footer-ul">
+                        <li><a href="index.html#quiz"><i class="bi bi-patch-question"></i>Take a Quiz</a></li>
+                        <li><a href="index.html#runner"><i class="bi bi-play-circle"></i>Code Runner</a></li>
+                        <li><a href="index.html#progress-section"><i class="bi bi-bar-chart"></i>Progress Tracker</a>
+                        </li>
+                        <li><a href="faq.html"><i class="bi bi-question-circle"></i>FAQ Page</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 LearnC - Nikita Ma'am. All rights reserved.</p>
+                <div class="socials">
+                    <a class="social-a" href="#"><i class="bi bi-instagram"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-youtube"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-facebook"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="js/topic.js"></script>
+</body>
+
+</html>

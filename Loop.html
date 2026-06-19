@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loops in C — LearnC</title>
+    <meta name="description" content="Learn C Programming with Nikita Ma'am" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <!-- SCROLL TO TOP -->
+    <button id="goTop"><i class="bi bi-arrow-up"></i></button>
+
+    <!-- NAVBAR -->
+    <nav class="lc-nav">
+        <div class="container">
+            <a class="nav-brand" href="index.html"><i class="bi bi-braces"></i>Learn<span>C</span></a>
+            <div class="nav-links">
+                <a class="nav-a " href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a class="nav-a active">Topics <i class="bi bi-chevron-down" style="font-size:.7rem"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="Intro.html"><i class="bi bi-play-circle"></i>Introduction</a>
+                        <a href="Variable.html"><i class="bi bi-box-seam"></i>Variables</a>
+                        <a href="Operator.html"><i class="bi bi-plus-slash-minus"></i>Operators</a>
+                        <a href="Datatype.html"><i class="bi bi-diagram-3"></i>Data Types</a>
+                        <a href="Conditional.html"><i class="bi bi-signpost-split"></i>Conditional Stmts</a>
+                        <a href="ControlStatement.html"><i class="bi bi-arrow-repeat"></i>Control Stmts</a>
+                        <a href="Loop.html"><i class="bi bi-arrow-clockwise"></i>Loops</a>
+                        <a href="array.html"><i class="bi bi-grid-3x3-gap"></i>Arrays</a>
+                        <a href="String.html"><i class="bi bi-type"></i>Strings</a>
+                        <a href="Function.html"><i class="bi bi-braces-asterisk"></i>Functions</a>
+                        <a href="Structure.html"><i class="bi bi-building"></i>Structures</a>
+
+                    </div>
+                </div>
+                <a class="nav-a " href="faq.html">FAQ</a>
+                <a class="nav-a" href="index.html#quiz">Quiz</a>
+                <a class="nav-a" href="index.html#runner">Code Runner</a>
+            </div>
+            <div class="nav-search" style="margin-left:1rem">
+                <i class="bi bi-search si"></i>
+                <input type="text" id="sInput" placeholder="Search topics…" autocomplete="off" />
+                <div class="search-drop" id="sDrop"></div>
+            </div>
+            <div class="theme-btn" id="themeBtn" title="Toggle dark/light" style="margin-left:.75rem"></div>
+            <button class="nav-ham" id="hamBtn"><i class="bi bi-list"></i></button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html"><i class="bi bi-house"></i> Home</a>
+            <a href="Intro.html"><i class="bi bi-play-circle"></i> Introduction</a>
+            <a href="Variable.html"><i class="bi bi-box-seam"></i> Variables</a>
+            <a href="Operator.html"><i class="bi bi-plus-slash-minus"></i> Operators</a>
+            <a href="Datatype.html"><i class="bi bi-diagram-3"></i> Data Types</a>
+            <a href="Conditional.html"><i class="bi bi-signpost-split"></i> Conditional Stmts</a>
+            <a href="ControlStatement.html"><i class="bi bi-arrow-repeat"></i> Control Stmts</a>
+            <a href="Loop.html"><i class="bi bi-arrow-clockwise"></i> Loops</a>
+            <a href="array.html"><i class="bi bi-grid-3x3-gap"></i> Arrays</a>
+            <a href="String.html"><i class="bi bi-type"></i> Strings</a>
+            <a href="Function.html"><i class="bi bi-braces-asterisk"></i> Functions</a>
+            <a href="Structure.html"><i class="bi bi-building"></i> Structures</a>
+            <a href="faq.html"><i class="bi bi-question-circle"></i> FAQ</a>
+            <a href="index.html#quiz"><i class="bi bi-patch-question"></i> Quiz</a>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="lc-breadcrumb"><a href="index.html">Home</a><i
+                    class="bi bi-chevron-right"></i><span>Loops</span></div>
+            <div class="hero-tag"><i class="bi bi-arrow-clockwise"></i> Topic 7 of 11</div>
+            <h1>Loops in <span class="hl">C Programming</span></h1>
+            <p class="lead">Loops allow you to execute a block of code repeatedly. C provides three types of loops: for,
+                while, and do-while.</p>
+        </div>
+    </section>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-8">
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-arrow-clockwise"></i>What is a Loop?</h3>
+                        <p>A <strong>loop</strong> is a programming construct that repeats a set of instructions until a
+                            specified condition is met. Instead of writing the same code multiple times, a loop executes
+                            it automatically.</p>
+                        <ul>
+                            <li>Every loop has an <strong>initialization</strong>, a <strong>condition</strong>, and an
+                                <strong>update</strong>.</li>
+                            <li>If the condition is always true, an infinite loop occurs.</li>
+                            <li>Use <code>break</code> to exit a loop early, <code>continue</code> to skip an iteration.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-1-circle-fill"></i>for Loop</h3>
+                        <p>Used when the number of iterations is <strong>known in advance</strong>. Syntax:
+                            <code>for (init; condition; update) { }</code></p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">for_loop.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    // Print numbers 1 to 5
+    for (int i = 1; i &lt;= 5; i++) {
+        printf("Count: %d\n", i);
+    }
+
+    // Multiplication table of 3
+    printf("\nTable of 3:\n");
+    for (int i = 1; i &lt;= 10; i++) {
+        printf("3 x %d = %d\n", i, 3 * i);
+    }
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>Count: 1<br>Count: 2<br>Count: 3<br>Count: 4<br>Count: 5<br><br>Table of 3:<br>3 x 1
+                                    = 3 ...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-2-circle-fill"></i>while Loop</h3>
+                        <p>Used when the number of iterations is <strong>not known</strong> and depends on a condition.
+                            Syntax: <code>while (condition) { }</code></p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">while_loop.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int i = 1;
+    while (i &lt;= 5) {
+        printf("i = %d\n", i);
+        i++;    // Update — important! Avoid infinite loop.
+    }
+
+    // Sum of digits
+    int num = 12345, sum = 0;
+    while (num &gt; 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+    printf("Sum of digits: %d\n", sum);
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>i = 1<br>i = 2<br>i = 3<br>i = 4<br>i = 5<br>Sum of digits: 15</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-3-circle-fill"></i>do-while Loop</h3>
+                        <p>Executes the body <strong>at least once</strong>, then checks the condition. Syntax:
+                            <code>do { } while (condition);</code></p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">dowhile.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int i = 1;
+    do {
+        printf("Value: %d\n", i);
+        i++;
+    } while (i &lt;= 5);
+
+    // Even if condition is false from start, runs once:
+    int x = 10;
+    do {
+        printf("This runs once even though x=%d &gt; 5\n", x);
+    } while (x &lt; 5);
+
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>Value: 1<br>Value: 2 ... Value: 5<br>This runs once even though x=10 > 5</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-table"></i>Loop Comparison</h3>
+                        <table class="syn-table">
+                            <tr>
+                                <th>Feature</th>
+                                <th>for</th>
+                                <th>while</th>
+                                <th>do-while</th>
+                            </tr>
+                            <tr>
+                                <td>When to use</td>
+                                <td>Known iterations</td>
+                                <td>Unknown iterations</td>
+                                <td>At least once</td>
+                            </tr>
+                            <tr>
+                                <td>Condition check</td>
+                                <td>Beginning</td>
+                                <td>Beginning</td>
+                                <td>End</td>
+                            </tr>
+                            <tr>
+                                <td>Min executions</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Init/Update</td>
+                                <td>In header</td>
+                                <td>Manual</td>
+                                <td>Manual</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-code-slash"></i>Practice Programs</h3>
+                        <div class="prog-accordion">
+                            <div class="prog-item-wrap">
+                                <div class="prog-q">1. Print all even numbers from 1 to 20<i class="bi bi-plus"></i>
+                                </div>
+                                <div class="prog-body">
+                                    <div class="code-block">
+                                        <div class="cb-header">
+                                            <div class="cb-dot r"></div>
+                                            <div class="cb-dot y"></div>
+                                            <div class="cb-dot g"></div>
+                                            <span class="cb-fname">program.c</span>
+                                            <button class="copy-btn">Copy</button>
+                                        </div>
+                                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    for (int i = 2; i &lt;= 20; i += 2) {
+        printf("%d ", i);
+    }
+    return 0;
+}</code></pre>
+                                        <div class="code-output-panel">
+                                            <div class="out-label">// Output</div>
+                                            <p>2 4 6 8 10 12 14 16 18 20</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prog-item-wrap">
+                                <div class="prog-q">2. Calculate factorial of a number<i class="bi bi-plus"></i></div>
+                                <div class="prog-body">
+                                    <div class="code-block">
+                                        <div class="cb-header">
+                                            <div class="cb-dot r"></div>
+                                            <div class="cb-dot y"></div>
+                                            <div class="cb-dot g"></div>
+                                            <span class="cb-fname">program.c</span>
+                                            <button class="copy-btn">Copy</button>
+                                        </div>
+                                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    int n = 5, fact = 1;
+    for (int i = 1; i &lt;= n; i++) {
+        fact *= i;
+    }
+    printf("Factorial of %d = %d\n", n, fact);
+    return 0;
+}</code></pre>
+                                        <div class="code-output-panel">
+                                            <div class="out-label">// Output</div>
+                                            <p>Factorial of 5 = 120</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prog-item-wrap">
+                                <div class="prog-q">3. Print Fibonacci series up to 10 terms<i class="bi bi-plus"></i>
+                                </div>
+                                <div class="prog-body">
+                                    <div class="code-block">
+                                        <div class="cb-header">
+                                            <div class="cb-dot r"></div>
+                                            <div class="cb-dot y"></div>
+                                            <div class="cb-dot g"></div>
+                                            <span class="cb-fname">program.c</span>
+                                            <button class="copy-btn">Copy</button>
+                                        </div>
+                                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    int a = 0, b = 1, c, n = 10;
+    printf("%d %d ", a, b);
+    for (int i = 2; i &lt; n; i++) {
+        c = a + b;
+        printf("%d ", c);
+        a = b;
+        b = c;
+    }
+    return 0;
+}</code></pre>
+                                        <div class="code-output-panel">
+                                            <div class="out-label">// Output</div>
+                                            <p>0 1 1 2 3 5 8 13 21 34</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-nav">
+                        <a class="tnav-btn" href="ControlStatement.html"><i class="bi bi-arrow-left"></i><span><span
+                                    class="lbl">Previous</span>Control Statements</span></a>
+                        <a class="tnav-btn next" href="array.html"><span><span class="lbl">Next</span>Arrays</span><i
+                                class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="concept-box" style="position:sticky;top:90px">
+                        <h3><i class="bi bi-list-ul"></i>In This Topic</h3>
+                        <ul>
+                            <li>What is a Loop?</li>
+                            <li>for Loop</li>
+                            <li>while Loop</li>
+                            <li>do-while Loop</li>
+                            <li>Loop Comparison</li>
+                            <li>Practice Programs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="lc-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand"><i class="bi bi-braces"></i>Learn<span>C</span></div>
+                    <p class="footer-tagline">A free, structured C programming learning resource built for engineering
+                        students.</p>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer-head">Basics</div>
+                    <ul class="footer-ul">
+                        <li><a href="Intro.html"><i class="bi bi-chevron-right"></i>Introduction</a></li>
+                        <li><a href="Variable.html"><i class="bi bi-chevron-right"></i>Variables</a></li>
+                        <li><a href="Operator.html"><i class="bi bi-chevron-right"></i>Operators</a></li>
+                        <li><a href="Datatype.html"><i class="bi bi-chevron-right"></i>Data Types</a></li>
+                        <li><a href="Loop.html"><i class="bi bi-chevron-right"></i>Loops</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer-head">Advanced</div>
+                    <ul class="footer-ul">
+                        <li><a href="Conditional.html"><i class="bi bi-chevron-right"></i>Conditionals</a></li>
+                        <li><a href="array.html"><i class="bi bi-chevron-right"></i>Arrays</a></li>
+                        <li><a href="String.html"><i class="bi bi-chevron-right"></i>Strings</a></li>
+                        <li><a href="Function.html"><i class="bi bi-chevron-right"></i>Functions</a></li>
+                        <li><a href="Structure.html"><i class="bi bi-chevron-right"></i>Structures</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-head">Quick Links</div>
+                    <ul class="footer-ul">
+                        <li><a href="index.html#quiz"><i class="bi bi-patch-question"></i>Take a Quiz</a></li>
+                        <li><a href="index.html#runner"><i class="bi bi-play-circle"></i>Code Runner</a></li>
+                        <li><a href="index.html#progress-section"><i class="bi bi-bar-chart"></i>Progress Tracker</a>
+                        </li>
+                        <li><a href="faq.html"><i class="bi bi-question-circle"></i>FAQ Page</a></li>
+                    </ul>
+                    <div class="footer-head mt-3">Contact</div>
+                    <ul class="footer-ul">
+                        <li><a href="#"><i class="bi bi-envelope"></i>nikita@learncprog.com</a></li>
+                        <li><a href="#"><i class="bi bi-telephone"></i>+91 98766 29972</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 LearnC — Nikita Ma'am. All rights reserved.</p>
+                <div class="socials">
+                    <a class="social-a" href="#"><i class="bi bi-instagram"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-youtube"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-facebook"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="js/topic.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Structures in C — LearnC</title>
+    <meta name="description" content="Learn C Programming with Nikita Ma'am" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <!-- SCROLL TO TOP -->
+    <button id="goTop"><i class="bi bi-arrow-up"></i></button>
+
+    <!-- NAVBAR -->
+    <nav class="lc-nav">
+        <div class="container">
+            <a class="nav-brand" href="index.html"><i class="bi bi-braces"></i>Learn<span>C</span></a>
+            <div class="nav-links">
+                <a class="nav-a " href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a class="nav-a active">Topics <i class="bi bi-chevron-down" style="font-size:.7rem"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="Intro.html"><i class="bi bi-play-circle"></i>Introduction</a>
+                        <a href="Variable.html"><i class="bi bi-box-seam"></i>Variables</a>
+                        <a href="Operator.html"><i class="bi bi-plus-slash-minus"></i>Operators</a>
+                        <a href="Datatype.html"><i class="bi bi-diagram-3"></i>Data Types</a>
+                        <a href="Conditional.html"><i class="bi bi-signpost-split"></i>Conditional Stmts</a>
+                        <a href="ControlStatement.html"><i class="bi bi-arrow-repeat"></i>Control Stmts</a>
+                        <a href="Loop.html"><i class="bi bi-arrow-clockwise"></i>Loops</a>
+                        <a href="array.html"><i class="bi bi-grid-3x3-gap"></i>Arrays</a>
+                        <a href="String.html"><i class="bi bi-type"></i>Strings</a>
+                        <a href="Function.html"><i class="bi bi-braces-asterisk"></i>Functions</a>
+                        <a href="Structure.html"><i class="bi bi-building"></i>Structures</a>
+
+                    </div>
+                </div>
+                <a class="nav-a " href="faq.html">FAQ</a>
+                <a class="nav-a" href="index.html#quiz">Quiz</a>
+                <a class="nav-a" href="index.html#runner">Code Runner</a>
+            </div>
+            <div class="nav-search" style="margin-left:1rem">
+                <i class="bi bi-search si"></i>
+                <input type="text" id="sInput" placeholder="Search topics…" autocomplete="off" />
+                <div class="search-drop" id="sDrop"></div>
+            </div>
+            <div class="theme-btn" id="themeBtn" title="Toggle dark/light" style="margin-left:.75rem"></div>
+            <button class="nav-ham" id="hamBtn"><i class="bi bi-list"></i></button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html"><i class="bi bi-house"></i> Home</a>
+            <a href="Intro.html"><i class="bi bi-play-circle"></i> Introduction</a>
+            <a href="Variable.html"><i class="bi bi-box-seam"></i> Variables</a>
+            <a href="Operator.html"><i class="bi bi-plus-slash-minus"></i> Operators</a>
+            <a href="Datatype.html"><i class="bi bi-diagram-3"></i> Data Types</a>
+            <a href="Conditional.html"><i class="bi bi-signpost-split"></i> Conditional Stmts</a>
+            <a href="ControlStatement.html"><i class="bi bi-arrow-repeat"></i> Control Stmts</a>
+            <a href="Loop.html"><i class="bi bi-arrow-clockwise"></i> Loops</a>
+            <a href="array.html"><i class="bi bi-grid-3x3-gap"></i> Arrays</a>
+            <a href="String.html"><i class="bi bi-type"></i> Strings</a>
+            <a href="Function.html"><i class="bi bi-braces-asterisk"></i> Functions</a>
+            <a href="Structure.html"><i class="bi bi-building"></i> Structures</a>
+            <a href="faq.html"><i class="bi bi-question-circle"></i> FAQ</a>
+            <a href="index.html#quiz"><i class="bi bi-patch-question"></i> Quiz</a>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="lc-breadcrumb"><a href="index.html">Home</a><i
+                    class="bi bi-chevron-right"></i><span>Structures</span></div>
+            <div class="hero-tag"><i class="bi bi-building-fill"></i> Topic 11 of 11</div>
+            <h1>Structures in <span class="hl">C Programming</span></h1>
+            <p class="lead">A structure is a user-defined data type that groups related variables of different types
+                under one name — like a student record with name, age, and marks.</p>
+        </div>
+    </section>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-8">
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-building-fill"></i>What is a Structure?</h3>
+                        <p>A <strong>structure</strong> (struct) is a user-defined data type that allows you to combine
+                            data items of different types. For example, a <em>Student</em> has a name (string), age
+                            (int), and marks (float) — all grouped together in one struct.</p>
+                        <ul>
+                            <li>Structures allow grouping of related data of <strong>different types</strong>.</li>
+                            <li>Declared using the <code>struct</code> keyword.</li>
+                            <li>Members are accessed using the <strong>dot operator</strong> (<code>.</code>).</li>
+                            <li>Pointers to structs use the <strong>arrow operator</strong> (<code>-&gt;</code>).</li>
+                        </ul>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-code-slash"></i>Declaring and Using a Structure</h3>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">struct_basic.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+// Define the structure
+struct Student {
+    char name[50];
+    int age;
+    float marks;
+};
+
+int main() {
+    // Declare a structure variable
+    struct Student s1;
+
+    // Assign values
+    strcpy(s1.name, "Riya");
+    s1.age = 20;
+    s1.marks = 92.5;
+
+    // Print values
+    printf("Name  : %s\n", s1.name);
+    printf("Age   : %d\n", s1.age);
+    printf("Marks : %.1f\n", s1.marks);
+
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>Name : Riya<br>Age : 20<br>Marks : 92.5</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-grid-3x3-gap-fill"></i>Array of Structures</h3>
+                        <p>We can create multiple records using an array of structures — very useful for storing student
+                            lists, employee records, etc.</p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">struct_array.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+struct Student {
+    char name[50];
+    int roll;
+    float marks;
+};
+
+int main() {
+    struct Student class[3] = {
+        {"Aarav",  1, 88.0},
+        {"Priya",  2, 95.5},
+        {"Rohan",  3, 76.0}
+    };
+
+    printf("%-10s %-6s %-6s\n", "Name", "Roll", "Marks");
+    printf("-----------------------------\n");
+    for (int i = 0; i &lt; 3; i++) {
+        printf("%-10s %-6d %.1f\n",
+               class[i].name, class[i].roll, class[i].marks);
+    }
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>Name Roll Marks<br>-----------------------------<br>Aarav 1 88.0<br>Priya 2
+                                    95.5<br>Rohan 3 76.0</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-box">
+                        <h3><i class="bi bi-code-slash"></i>Practice Programs</h3>
+                        <div class="prog-accordion">
+                            <div class="prog-item-wrap">
+                                <div class="prog-q">1. Structure to store and display book information<i
+                                        class="bi bi-plus"></i></div>
+                                <div class="prog-body">
+                                    <div class="code-block">
+                                        <div class="cb-header">
+                                            <div class="cb-dot r"></div>
+                                            <div class="cb-dot y"></div>
+                                            <div class="cb-dot g"></div>
+                                            <span class="cb-fname">program.c</span>
+                                            <button class="copy-btn">Copy</button>
+                                        </div>
+                                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+struct Book {
+    char title[100];
+    char author[50];
+    int year;
+    float price;
+};
+int main() {
+    struct Book b = {"C Programming Language", "Kernighan & Ritchie", 1978, 450.0};
+    printf("Title  : %s\n", b.title);
+    printf("Author : %s\n", b.author);
+    printf("Year   : %d\n", b.year);
+    printf("Price  : Rs.%.2f\n", b.price);
+    return 0;
+}</code></pre>
+                                        <div class="code-output-panel">
+                                            <div class="out-label">// Output</div>
+                                            <p>Title : C Programming Language<br>Author : Kernighan & Ritchie<br>Year :
+                                                1978<br>Price : Rs.450.00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prog-item-wrap">
+                                <div class="prog-q">2. Find the student with highest marks<i class="bi bi-plus"></i>
+                                </div>
+                                <div class="prog-body">
+                                    <div class="code-block">
+                                        <div class="cb-header">
+                                            <div class="cb-dot r"></div>
+                                            <div class="cb-dot y"></div>
+                                            <div class="cb-dot g"></div>
+                                            <span class="cb-fname">program.c</span>
+                                            <button class="copy-btn">Copy</button>
+                                        </div>
+                                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+struct Student { char name[30]; float marks; };
+int main() {
+    struct Student s[3] = {{"Alice",88},{"Bob",95},{"Carol",79}};
+    int top = 0;
+    for (int i = 1; i &lt; 3; i++)
+        if (s[i].marks &gt; s[top].marks) top = i;
+    printf("Topper: %s (%.1f)\n", s[top].name, s[top].marks);
+    return 0;
+}</code></pre>
+                                        <div class="code-output-panel">
+                                            <div class="out-label">// Output</div>
+                                            <p>Topper: Bob (95.0)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-nav">
+                        <a class="tnav-btn" href="Function.html"><i class="bi bi-arrow-left"></i><span><span
+                                    class="lbl">Previous</span>Functions</span></a>
+                        <a class="tnav-btn next" href="index.html"><span><span class="lbl">Next</span>Home</span><i
+                                class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="concept-box" style="position:sticky;top:90px">
+                        <h3><i class="bi bi-list-ul"></i>In This Topic</h3>
+                        <ul>
+                            <li>What is a Structure?</li>
+                            <li>Declaration & Usage</li>
+                            <li>Array of Structures</li>
+                            <li>Nested Structures</li>
+                            <li>Practice Programs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="lc-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand"><i class="bi bi-braces"></i>Learn<span>C</span></div>
+                    <p class="footer-tagline">A free, structured C programming learning resource built for engineering
+                        students.</p>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer-head">Basics</div>
+                    <ul class="footer-ul">
+                        <li><a href="Intro.html"><i class="bi bi-chevron-right"></i>Introduction</a></li>
+                        <li><a href="Variable.html"><i class="bi bi-chevron-right"></i>Variables</a></li>
+                        <li><a href="Operator.html"><i class="bi bi-chevron-right"></i>Operators</a></li>
+                        <li><a href="Datatype.html"><i class="bi bi-chevron-right"></i>Data Types</a></li>
+                        <li><a href="Loop.html"><i class="bi bi-chevron-right"></i>Loops</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer-head">Advanced</div>
+                    <ul class="footer-ul">
+                        <li><a href="Conditional.html"><i class="bi bi-chevron-right"></i>Conditionals</a></li>
+                        <li><a href="array.html"><i class="bi bi-chevron-right"></i>Arrays</a></li>
+                        <li><a href="String.html"><i class="bi bi-chevron-right"></i>Strings</a></li>
+                        <li><a href="Function.html"><i class="bi bi-chevron-right"></i>Functions</a></li>
+                        <li><a href="Structure.html"><i class="bi bi-chevron-right"></i>Structures</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-head">Quick Links</div>
+                    <ul class="footer-ul">
+                        <li><a href="index.html#quiz"><i class="bi bi-patch-question"></i>Take a Quiz</a></li>
+                        <li><a href="index.html#runner"><i class="bi bi-play-circle"></i>Code Runner</a></li>
+                        <li><a href="index.html#progress-section"><i class="bi bi-bar-chart"></i>Progress Tracker</a>
+                        </li>
+                        <li><a href="faq.html"><i class="bi bi-question-circle"></i>FAQ Page</a></li>
+                    </ul>
+                    <div class="footer-head mt-3">Contact</div>
+                    <ul class="footer-ul">
+                        <li><a href="#"><i class="bi bi-envelope"></i>nikita@learncprog.com</a></li>
+                        <li><a href="#"><i class="bi bi-telephone"></i>+91 98766 29972</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 LearnC — Nikita Ma'am. All rights reserved.</p>
+                <div class="socials">
+                    <a class="social-a" href="#"><i class="bi bi-instagram"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-youtube"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-facebook"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="js/topic.js"></script>
+</body>
+
+</html>

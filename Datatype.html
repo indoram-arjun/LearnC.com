@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Types in C — LearnC</title>
+    <meta name="description" content="Learn about Data Types in C Programming with Nikita Ma'am" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <!-- SCROLL TO TOP -->
+    <button id="goTop"><i class="bi bi-arrow-up"></i></button>
+
+    <!-- NAVBAR -->
+    <nav class="lc-nav">
+        <div class="container">
+            <a class="nav-brand" href="index.html"><i class="bi bi-braces"></i>Learn<span>C</span></a>
+            <div class="nav-links">
+                <a class="nav-a" href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a class="nav-a active">Topics <i class="bi bi-chevron-down" style="font-size:.7rem"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="Intro.html"><i class="bi bi-play-circle"></i>Introduction</a>
+                        <a href="Variable.html"><i class="bi bi-box-seam"></i>Variables</a>
+                        <a href="Operator.html"><i class="bi bi-plus-slash-minus"></i>Operators</a>
+                        <a href="Datatype.html"><i class="bi bi-diagram-3"></i>Data Types</a>
+                        <a href="Conditional.html"><i class="bi bi-signpost-split"></i>Conditional Stmts</a>
+                        <a href="ControlStatement.html"><i class="bi bi-arrow-repeat"></i>Control Stmts</a>
+                        <a href="Loop.html"><i class="bi bi-arrow-clockwise"></i>Loops</a>
+                        <a href="array.html"><i class="bi bi-grid-3x3-gap"></i>Arrays</a>
+                        <a href="String.html"><i class="bi bi-type"></i>Strings</a>
+                        <a href="Function.html"><i class="bi bi-braces-asterisk"></i>Functions</a>
+                        <a href="Structure.html"><i class="bi bi-building"></i>Structures</a>
+                    </div>
+                </div>
+                <a class="nav-a" href="faq.html">FAQ</a>
+                <a class="nav-a" href="index.html#quiz">Quiz</a>
+                <a class="nav-a" href="index.html#runner">Code Runner</a>
+            </div>
+            <div class="nav-search" style="margin-left:1rem">
+                <i class="bi bi-search si"></i>
+                <input type="text" id="sInput" placeholder="Search topics…" autocomplete="off" />
+                <div class="search-drop" id="sDrop"></div>
+            </div>
+            <div class="theme-btn" id="themeBtn" title="Toggle dark/light" style="margin-left:.75rem"></div>
+            <button class="nav-ham" id="hamBtn"><i class="bi bi-list"></i></button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html"><i class="bi bi-house"></i> Home</a>
+            <a href="Intro.html"><i class="bi bi-play-circle"></i> Introduction</a>
+            <a href="Variable.html"><i class="bi bi-box-seam"></i> Variables</a>
+            <a href="Operator.html"><i class="bi bi-plus-slash-minus"></i> Operators</a>
+            <a href="Datatype.html"><i class="bi bi-diagram-3"></i> Data Types</a>
+            <a href="Conditional.html"><i class="bi bi-signpost-split"></i> Conditional Stmts</a>
+            <a href="ControlStatement.html"><i class="bi bi-arrow-repeat"></i> Control Stmts</a>
+            <a href="Loop.html"><i class="bi bi-arrow-clockwise"></i> Loops</a>
+            <a href="array.html"><i class="bi bi-grid-3x3-gap"></i> Arrays</a>
+            <a href="String.html"><i class="bi bi-type"></i> Strings</a>
+            <a href="Function.html"><i class="bi bi-braces-asterisk"></i> Functions</a>
+            <a href="Structure.html"><i class="bi bi-building"></i> Structures</a>
+            <a href="faq.html"><i class="bi bi-question-circle"></i> FAQ</a>
+            <a href="index.html#quiz"><i class="bi bi-patch-question"></i> Quiz</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="lc-breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="bi bi-chevron-right"></i>
+                <span>Data Types</span>
+            </div>
+            <div class="hero-tag"><i class="bi bi-diagram-3-fill"></i> Topic 4 of 11</div>
+            <h1>Data Types in <span class="hl">C Programming</span></h1>
+            <p class="lead">Data types define the type and size of data a variable can hold. Every variable in C must be
+                declared with a data type before use.</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-8">
+
+                    <!-- What are Data Types -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-diagram-3-fill"></i>What are Data Types?</h3>
+                        <p>A <strong>data type</strong> tells the compiler what kind of data a variable will store —
+                            whether it's a number, a decimal, or a character. It also determines how much memory is
+                            allocated.</p>
+                        <ul>
+                            <li>Data types define the <strong>size</strong> and <strong>range</strong> of values.</li>
+                            <li>The compiler uses the data type to decide how many bytes to reserve in memory.</li>
+                            <li>C is a <strong>statically typed</strong> language — you must declare the type before
+                                using a variable.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Primary Data Types -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-1-circle-fill"></i>Primary (Basic) Data Types</h3>
+                        <p>C has four fundamental primary data types:</p>
+                        <table class="syn-table">
+                            <tr>
+                                <th>Data Type</th>
+                                <th>Size</th>
+                                <th>Range</th>
+                                <th>Format Specifier</th>
+                            </tr>
+                            <tr>
+                                <td><code>int</code></td>
+                                <td>4 bytes</td>
+                                <td>-2,147,483,648 to 2,147,483,647</td>
+                                <td><code>%d</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>float</code></td>
+                                <td>4 bytes</td>
+                                <td>3.4e-38 to 3.4e+38</td>
+                                <td><code>%f</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>double</code></td>
+                                <td>8 bytes</td>
+                                <td>1.7e-308 to 1.7e+308</td>
+                                <td><code>%lf</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>char</code></td>
+                                <td>1 byte</td>
+                                <td>-128 to 127</td>
+                                <td><code>%c</code></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Code Example -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-code-slash"></i>Using Basic Data Types — Example</h3>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">datatypes.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int age = 20;
+    float height = 5.9;
+    double pi = 3.14159265358979;
+    char grade = 'A';
+
+    printf("Age     : %d\n", age);
+    printf("Height  : %.1f\n", height);
+    printf("Pi      : %.10lf\n", pi);
+    printf("Grade   : %c\n", grade);
+
+    // Check memory sizes
+    printf("\nSizes:\n");
+    printf("int    = %lu bytes\n", sizeof(int));
+    printf("float  = %lu bytes\n", sizeof(float));
+    printf("double = %lu bytes\n", sizeof(double));
+    printf("char   = %lu bytes\n", sizeof(char));
+
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>Age : 20<br>Height : 5.9<br>Pi : 3.1415926536<br>Grade : A<br><br>Sizes:<br>int = 4
+                                    bytes<br>float = 4 bytes<br>double = 8 bytes<br>char = 1 byte</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Derived Data Types -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-2-circle-fill"></i>Derived Data Types</h3>
+                        <p>Derived data types are built from primary types:</p>
+                        <div class="key-points">
+                            <div class="kp-card">
+                                <h5>Array</h5>
+                                <p>A collection of elements of the same type stored in contiguous memory.
+                                    <code>int arr[5];</code></p>
+                            </div>
+                            <div class="kp-card">
+                                <h5>Pointer</h5>
+                                <p>Stores the memory address of another variable. <code>int *p;</code></p>
+                            </div>
+                            <div class="kp-card">
+                                <h5>Function</h5>
+                                <p>A block of code that performs a specific task and can return a value.</p>
+                            </div>
+                            <div class="kp-card">
+                                <h5>Structure</h5>
+                                <p>Groups different data types under one name. <code>struct Student { };</code></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Type Modifiers -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-3-circle-fill"></i>Type Modifiers</h3>
+                        <p>Modifiers change the size or sign of a data type:</p>
+                        <table class="syn-table">
+                            <tr>
+                                <th>Modified Type</th>
+                                <th>Size</th>
+                                <th>Range</th>
+                            </tr>
+                            <tr>
+                                <td><code>short int</code></td>
+                                <td>2 bytes</td>
+                                <td>-32,768 to 32,767</td>
+                            </tr>
+                            <tr>
+                                <td><code>long int</code></td>
+                                <td>8 bytes</td>
+                                <td>-9.2×10¹⁸ to 9.2×10¹⁸</td>
+                            </tr>
+                            <tr>
+                                <td><code>unsigned int</code></td>
+                                <td>4 bytes</td>
+                                <td>0 to 4,294,967,295</td>
+                            </tr>
+                            <tr>
+                                <td><code>unsigned char</code></td>
+                                <td>1 byte</td>
+                                <td>0 to 255</td>
+                            </tr>
+                            <tr>
+                                <td><code>long double</code></td>
+                                <td>12–16 bytes</td>
+                                <td>Higher precision than double</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Type Conversion -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-arrow-left-right"></i>Type Conversion</h3>
+                        <p>C allows converting one data type to another — either automatically (implicit) or manually
+                            (explicit).</p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">typecast.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    // Implicit conversion (automatic)
+    int a = 5;
+    float b = a;     // int automatically becomes float
+    printf("b = %.1f\n", b);  // Output: 5.0
+
+    // Explicit conversion (type casting)
+    float x = 9.7;
+    int y = (int)x;  // Decimal part is lost
+    printf("y = %d\n", y);    // Output: 9
+
+    // Integer division vs float division
+    int p = 7, q = 2;
+    printf("int  : %d\n", p / q);         // Output: 3
+    printf("float: %.1f\n", (float)p / q); // Output: 3.5
+
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>b = 5.0<br>y = 9<br>int : 3<br>float: 3.5</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Practice Programs -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-code-slash"></i>Practice Programs</h3>
+                        <div class="prog-accordion">
+                            <div class="prog-item-wrap">
+                                <div class="prog-q">1. Print sizes of all data types <i class="bi bi-plus"></i></div>
+                                <div class="prog-body">
+                                    <div class="code-block">
+                                        <div class="cb-header">
+                                            <div class="cb-dot r"></div>
+                                            <div class="cb-dot y"></div>
+                                            <div class="cb-dot g"></div>
+                                            <span class="cb-fname">sizes.c</span>
+                                            <button class="copy-btn">Copy</button>
+                                        </div>
+                                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    printf("char         = %lu bytes\n", sizeof(char));
+    printf("int          = %lu bytes\n", sizeof(int));
+    printf("short int    = %lu bytes\n", sizeof(short int));
+    printf("long int     = %lu bytes\n", sizeof(long int));
+    printf("float        = %lu bytes\n", sizeof(float));
+    printf("double       = %lu bytes\n", sizeof(double));
+    printf("long double  = %lu bytes\n", sizeof(long double));
+    return 0;
+}</code></pre>
+                                        <div class="code-output-panel">
+                                            <div class="out-label">// Output</div>
+                                            <p>char = 1 bytes<br>int = 4 bytes<br>short int = 2 bytes<br>long int = 8
+                                                bytes<br>float = 4 bytes<br>double = 8 bytes<br>long double = 12 bytes
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prog-item-wrap">
+                                <div class="prog-q">2. Demonstrate type casting in division <i class="bi bi-plus"></i>
+                                </div>
+                                <div class="prog-body">
+                                    <div class="code-block">
+                                        <div class="cb-header">
+                                            <div class="cb-dot r"></div>
+                                            <div class="cb-dot y"></div>
+                                            <div class="cb-dot g"></div>
+                                            <span class="cb-fname">casting.c</span>
+                                            <button class="copy-btn">Copy</button>
+                                        </div>
+                                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    int a = 10, b = 3;
+    printf("Without cast : %d\n", a / b);
+    printf("With cast    : %.4f\n", (float)a / b);
+    printf("With cast    : %.4lf\n", (double)a / b);
+    return 0;
+}</code></pre>
+                                        <div class="code-output-panel">
+                                            <div class="out-label">// Output</div>
+                                            <p>Without cast : 3<br>With cast : 3.3333<br>With cast : 3.3333</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prog-item-wrap">
+                                <div class="prog-q">3. Store and display char as integer <i class="bi bi-plus"></i>
+                                </div>
+                                <div class="prog-body">
+                                    <div class="code-block">
+                                        <div class="cb-header">
+                                            <div class="cb-dot r"></div>
+                                            <div class="cb-dot y"></div>
+                                            <div class="cb-dot g"></div>
+                                            <span class="cb-fname">ascii.c</span>
+                                            <button class="copy-btn">Copy</button>
+                                        </div>
+                                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    char ch = 'A';
+    printf("Character : %c\n", ch);
+    printf("ASCII     : %d\n", ch);
+    printf("Next char : %c\n", ch + 1);  // 'B'
+    return 0;
+}</code></pre>
+                                        <div class="code-output-panel">
+                                            <div class="out-label">// Output</div>
+                                            <p>Character : A<br>ASCII : 65<br>Next char : B</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic Nav -->
+                    <div class="topic-nav">
+                        <a class="tnav-btn" href="Operator.html"><i class="bi bi-arrow-left"></i><span><span
+                                    class="lbl">Previous</span>Operators</span></a>
+                        <a class="tnav-btn next" href="Conditional.html"><span><span class="lbl">Next</span>Conditional
+                                Statements</span><i class="bi bi-arrow-right"></i></a>
+                    </div>
+
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <div class="concept-box" style="position:sticky;top:90px">
+                        <h3><i class="bi bi-list-ul"></i>In This Topic</h3>
+                        <ul>
+                            <li>What are Data Types?</li>
+                            <li>Primary Data Types</li>
+                            <li>Code Example</li>
+                            <li>Derived Data Types</li>
+                            <li>Type Modifiers</li>
+                            <li>Type Conversion</li>
+                            <li>Practice Programs</li>
+                        </ul>
+                        <div style="margin-top:1.5rem">
+                            <div class="tag-badge">Next Topic</div>
+                            <a href="Conditional.html"
+                                style="font-weight:700;color:var(--primary);display:flex;align-items:center;gap:8px">
+                                Conditional Statements <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="lc-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand"><i class="bi bi-braces"></i>Learn<span>C</span></div>
+                    <p class="footer-tagline">A free, structured C programming learning resource built for engineering
+                        students.</p>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer-head">Basics</div>
+                    <ul class="footer-ul">
+                        <li><a href="Intro.html"><i class="bi bi-chevron-right"></i>Introduction</a></li>
+                        <li><a href="Variable.html"><i class="bi bi-chevron-right"></i>Variables</a></li>
+                        <li><a href="Operator.html"><i class="bi bi-chevron-right"></i>Operators</a></li>
+                        <li><a href="Datatype.html"><i class="bi bi-chevron-right"></i>Data Types</a></li>
+                        <li><a href="Loop.html"><i class="bi bi-chevron-right"></i>Loops</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer-head">Advanced</div>
+                    <ul class="footer-ul">
+                        <li><a href="Conditional.html"><i class="bi bi-chevron-right"></i>Conditionals</a></li>
+                        <li><a href="array.html"><i class="bi bi-chevron-right"></i>Arrays</a></li>
+                        <li><a href="String.html"><i class="bi bi-chevron-right"></i>Strings</a></li>
+                        <li><a href="Function.html"><i class="bi bi-chevron-right"></i>Functions</a></li>
+                        <li><a href="Structure.html"><i class="bi bi-chevron-right"></i>Structures</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-head">Quick Links</div>
+                    <ul class="footer-ul">
+                        <li><a href="index.html#quiz"><i class="bi bi-patch-question"></i>Take a Quiz</a></li>
+                        <li><a href="index.html#runner"><i class="bi bi-play-circle"></i>Code Runner</a></li>
+                        <li><a href="index.html#progress-section"><i class="bi bi-bar-chart"></i>Progress Tracker</a>
+                        </li>
+                        <li><a href="faq.html"><i class="bi bi-question-circle"></i>FAQ Page</a></li>
+                    </ul>
+                    <div class="footer-head mt-3">Contact</div>
+                    <ul class="footer-ul">
+                        <li><a href="#"><i class="bi bi-envelope"></i>nikita@learnc.in</a></li>
+                        <li><a href="#"><i class="bi bi-telephone"></i>+91 98766 29972</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 LearnC — Nikita Ma'am. All rights reserved.</p>
+                <div class="socials">
+                    <a class="social-a" href="#"><i class="bi bi-instagram"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-youtube"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-facebook"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="js/topic.js"></script>
+</body>
+
+</html>

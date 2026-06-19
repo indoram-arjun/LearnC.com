@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control Statements in C — LearnC</title>
+    <meta name="description" content="Learn Control Statements in C — break, continue, goto with Nikita Ma'am" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <button id="goTop"><i class="bi bi-arrow-up"></i></button>
+
+    <nav class="lc-nav">
+        <div class="container">
+            <a class="nav-brand" href="index.html"><i class="bi bi-braces"></i>Learn<span>C</span></a>
+            <div class="nav-links">
+                <a class="nav-a" href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <a class="nav-a active">Topics <i class="bi bi-chevron-down" style="font-size:.7rem"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="Intro.html"><i class="bi bi-play-circle"></i>Introduction</a>
+                        <a href="Variable.html"><i class="bi bi-box-seam"></i>Variables</a>
+                        <a href="Operator.html"><i class="bi bi-plus-slash-minus"></i>Operators</a>
+                        <a href="Datatype.html"><i class="bi bi-diagram-3"></i>Data Types</a>
+                        <a href="Conditional.html"><i class="bi bi-signpost-split"></i>Conditional Stmts</a>
+                        <a href="ControlStatement.html"><i class="bi bi-arrow-repeat"></i>Control Stmts</a>
+                        <a href="Loop.html"><i class="bi bi-arrow-clockwise"></i>Loops</a>
+                        <a href="array.html"><i class="bi bi-grid-3x3-gap"></i>Arrays</a>
+                        <a href="String.html"><i class="bi bi-type"></i>Strings</a>
+                        <a href="Function.html"><i class="bi bi-braces-asterisk"></i>Functions</a>
+                        <a href="Structure.html"><i class="bi bi-building"></i>Structures</a>
+                    </div>
+                </div>
+                <a class="nav-a" href="faq.html">FAQ</a>
+                <a class="nav-a" href="index.html#quiz">Quiz</a>
+                <a class="nav-a" href="index.html#runner">Code Runner</a>
+            </div>
+            <div class="nav-search" style="margin-left:1rem">
+                <i class="bi bi-search si"></i>
+                <input type="text" id="sInput" placeholder="Search topics…" autocomplete="off" />
+                <div class="search-drop" id="sDrop"></div>
+            </div>
+            <div class="theme-btn" id="themeBtn" title="Toggle dark/light" style="margin-left:.75rem"></div>
+            <button class="nav-ham" id="hamBtn"><i class="bi bi-list"></i></button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html"><i class="bi bi-house"></i> Home</a>
+            <a href="Intro.html"><i class="bi bi-play-circle"></i> Introduction</a>
+            <a href="Variable.html"><i class="bi bi-box-seam"></i> Variables</a>
+            <a href="Operator.html"><i class="bi bi-plus-slash-minus"></i> Operators</a>
+            <a href="Datatype.html"><i class="bi bi-diagram-3"></i> Data Types</a>
+            <a href="Conditional.html"><i class="bi bi-signpost-split"></i> Conditional Stmts</a>
+            <a href="ControlStatement.html"><i class="bi bi-arrow-repeat"></i> Control Stmts</a>
+            <a href="Loop.html"><i class="bi bi-arrow-clockwise"></i> Loops</a>
+            <a href="array.html"><i class="bi bi-grid-3x3-gap"></i> Arrays</a>
+            <a href="String.html"><i class="bi bi-type"></i> Strings</a>
+            <a href="Function.html"><i class="bi bi-braces-asterisk"></i> Functions</a>
+            <a href="Structure.html"><i class="bi bi-building"></i> Structures</a>
+            <a href="faq.html"><i class="bi bi-question-circle"></i> FAQ</a>
+            <a href="index.html#quiz"><i class="bi bi-patch-question"></i> Quiz</a>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="lc-breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="bi bi-chevron-right"></i>
+                <span>Control Statements</span>
+            </div>
+            <div class="hero-tag"><i class="bi bi-arrow-repeat"></i> Topic 6 of 11</div>
+            <h1>Control Statements in <span class="hl">C Programming</span></h1>
+            <p class="lead">Control statements alter the normal sequential flow of a program. They let you exit loops
+                early, skip iterations, or jump to a different part of code.</p>
+        </div>
+    </section>
+
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-8">
+
+                    <!-- Overview -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-arrow-repeat"></i>Control Statements Overview</h3>
+                        <p>C provides three control jump statements to change the normal flow of execution inside loops
+                            and switch blocks:</p>
+                        <div class="key-points">
+                            <div class="kp-card">
+                                <h5>break</h5>
+                                <p>Immediately exits the loop or switch block it's inside.</p>
+                            </div>
+                            <div class="kp-card">
+                                <h5>continue</h5>
+                                <p>Skips the rest of the current iteration and jumps to the next one.</p>
+                            </div>
+                            <div class="kp-card">
+                                <h5>goto</h5>
+                                <p>Jumps to a labeled statement anywhere in the same function.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- break -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-1-circle-fill"></i>break Statement</h3>
+                        <p>The <code>break</code> statement immediately terminates the nearest enclosing loop
+                            (<code>for</code>, <code>while</code>, <code>do-while</code>) or <code>switch</code> block
+                            and transfers control to the statement after it.</p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">break.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    // break in for loop
+    printf("Break in for loop:\n");
+    for (int i = 1; i &lt;= 10; i++) {
+        if (i == 6) {
+            printf("Breaking at i = %d\n", i);
+            break;
+        }
+        printf("%d ", i);
+    }
+    printf("\n");
+
+    // break in while loop — find first multiple of 7
+    printf("\nFirst multiple of 7 after 20:\n");
+    int n = 21;
+    while (n &lt;= 100) {
+        if (n % 7 == 0) {
+            printf("Found: %d\n", n);
+            break;
+        }
+        n++;
+    }
+
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>Break in for loop:<br>1 2 3 4 5 <br>Breaking at i = 6<br><br>First multiple of 7
+                                    after 20:<br>Found: 21</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- continue -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-2-circle-fill"></i>continue Statement</h3>
+                        <p>The <code>continue</code> statement skips the remaining code in the current loop iteration
+                            and jumps back to the condition check. It does NOT exit the loop — only skips one iteration.
+                        </p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">continue.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    // Skip even numbers — print only odd
+    printf("Odd numbers (1-10):\n");
+    for (int i = 1; i &lt;= 10; i++) {
+        if (i % 2 == 0) {
+            continue;   // Skip even numbers
+        }
+        printf("%d ", i);
+    }
+    printf("\n");
+
+    // Skip multiples of 3
+    printf("\nNumbers 1-15 skipping multiples of 3:\n");
+    for (int i = 1; i &lt;= 15; i++) {
+        if (i % 3 == 0) continue;
+        printf("%d ", i);
+    }
+    printf("\n");
+
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>Odd numbers (1-10):<br>1 3 5 7 9<br><br>Numbers 1-15 skipping multiples of 3:<br>1 2
+                                    4 5 7 8 10 11 13 14</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- break vs continue -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-table"></i>break vs continue — Key Difference</h3>
+                        <table class="syn-table">
+                            <tr>
+                                <th>Feature</th>
+                                <th>break</th>
+                                <th>continue</th>
+                            </tr>
+                            <tr>
+                                <td>Effect on loop</td>
+                                <td>Exits the loop completely</td>
+                                <td>Skips current iteration only</td>
+                            </tr>
+                            <tr>
+                                <td>Loop continues?</td>
+                                <td>❌ No</td>
+                                <td>✅ Yes (next iteration runs)</td>
+                            </tr>
+                            <tr>
+                                <td>Works in switch?</td>
+                                <td>✅ Yes</td>
+                                <td>❌ No</td>
+                            </tr>
+                            <tr>
+                                <td>Use case</td>
+                                <td>Stop searching once found</td>
+                                <td>Skip specific values</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- goto -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-3-circle-fill"></i>goto Statement</h3>
+                        <p>The <code>goto</code> statement transfers control to a labeled line in the same function. It
+                            is generally <strong>avoided</strong> in modern programming because it makes code hard to
+                            read and debug — use loops and functions instead. However, it is useful for breaking out of
+                            deeply nested loops.</p>
+                        <div class="code-block">
+                            <div class="cb-header">
+                                <div class="cb-dot r"></div>
+                                <div class="cb-dot y"></div>
+                                <div class="cb-dot g"></div>
+                                <span class="cb-fname">goto.c</span>
+                                <button class="copy-btn">Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int i = 1;
+
+loop:                      // Label
+    if (i &lt;= 5) {
+        printf("i = %d\n", i);
+        i++;
+        goto loop;         // Jump back to label
+    }
+
+    printf("Loop done!\n");
+
+    // Practical use: exit nested loops
+    printf("\nMatrix search:\n");
+    int mat[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+    int target = 5;
+    int found = 0;
+
+    for (int r = 0; r &lt; 3; r++) {
+        for (int c = 0; c &lt; 3; c++) {
+            if (mat[r][c] == target) {
+                printf("Found %d at [%d][%d]\n", target, r, c);
+                found = 1;
+                goto done;   // Exit both loops
+            }
+        }
+    }
+
+done:
+    if (!found) printf("Not found\n");
+    return 0;
+}</code></pre>
+                            <div class="code-output-panel">
+                                <div class="out-label">// Output</div>
+                                <p>i = 1<br>i = 2<br>i = 3<br>i = 4<br>i = 5<br>Loop done!<br><br>Matrix
+                                    search:<br>Found 5 at [1][1]</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Practice Programs -->
+                    <div class="concept-box">
+                        <h3><i class="bi bi-code-slash"></i>Practice Programs</h3>
+                        <div class="prog-accordion">
+                            <div class="prog-item-wrap">
+                                <div class="prog-q">1. Print numbers 1-20 skipping multiples of 4 <i
+                                        class="bi bi-plus"></i></div>
+                                <div class="prog-body">
+                                    <div class="code-block">
+                                        <div class="cb-header">
+                                            <div class="cb-dot r"></div>
+                                            <div class="cb-dot y"></div>
+                                            <div class="cb-dot g"></div>
+                                            <span class="cb-fname">skip4.c</span>
+                                            <button class="copy-btn">Copy</button>
+                                        </div>
+                                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    for (int i = 1; i &lt;= 20; i++) {
+        if (i % 4 == 0) continue;
+        printf("%d ", i);
+    }
+    return 0;
+}</code></pre>
+                                        <div class="code-output-panel">
+                                            <div class="out-label">// Output</div>
+                                            <p>1 2 3 5 6 7 9 10 11 13 14 15 17 18 19</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prog-item-wrap">
+                                <div class="prog-q">2. Search in array, stop when found <i class="bi bi-plus"></i></div>
+                                <div class="prog-body">
+                                    <div class="code-block">
+                                        <div class="cb-header">
+                                            <div class="cb-dot r"></div>
+                                            <div class="cb-dot y"></div>
+                                            <div class="cb-dot g"></div>
+                                            <span class="cb-fname">search.c</span>
+                                            <button class="copy-btn">Copy</button>
+                                        </div>
+                                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    int arr[] = {12, 45, 7, 23, 89, 3};
+    int target = 23, n = 6;
+    for (int i = 0; i &lt; n; i++) {
+        if (arr[i] == target) {
+            printf("Found %d at index %d\n", target, i);
+            break;
+        }
+    }
+    return 0;
+}</code></pre>
+                                        <div class="code-output-panel">
+                                            <div class="out-label">// Output</div>
+                                            <p>Found 23 at index 3</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prog-item-wrap">
+                                <div class="prog-q">3. Print sum of non-negative numbers in array <i
+                                        class="bi bi-plus"></i></div>
+                                <div class="prog-body">
+                                    <div class="code-block">
+                                        <div class="cb-header">
+                                            <div class="cb-dot r"></div>
+                                            <div class="cb-dot y"></div>
+                                            <div class="cb-dot g"></div>
+                                            <span class="cb-fname">positivesum.c</span>
+                                            <button class="copy-btn">Copy</button>
+                                        </div>
+                                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+int main() {
+    int arr[] = {5, -3, 8, -1, 12, -6, 4};
+    int n = 7, sum = 0;
+    for (int i = 0; i &lt; n; i++) {
+        if (arr[i] &lt; 0) continue;  // skip negatives
+        sum += arr[i];
+    }
+    printf("Sum of positive numbers = %d\n", sum);
+    return 0;
+}</code></pre>
+                                        <div class="code-output-panel">
+                                            <div class="out-label">// Output</div>
+                                            <p>Sum of positive numbers = 29</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic-nav">
+                        <a class="tnav-btn" href="Conditional.html"><i class="bi bi-arrow-left"></i><span><span
+                                    class="lbl">Previous</span>Conditional Statements</span></a>
+                        <a class="tnav-btn next" href="Loop.html"><span><span class="lbl">Next</span>Loops</span><i
+                                class="bi bi-arrow-right"></i></a>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="concept-box" style="position:sticky;top:90px">
+                        <h3><i class="bi bi-list-ul"></i>In This Topic</h3>
+                        <ul>
+                            <li>Overview</li>
+                            <li>break Statement</li>
+                            <li>continue Statement</li>
+                            <li>break vs continue</li>
+                            <li>goto Statement</li>
+                            <li>Practice Programs</li>
+                        </ul>
+                        <div style="margin-top:1.5rem">
+                            <div class="tag-badge">Next Topic</div>
+                            <a href="Loop.html"
+                                style="font-weight:700;color:var(--primary);display:flex;align-items:center;gap:8px">
+                                Loops <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="lc-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand"><i class="bi bi-braces"></i>Learn<span>C</span></div>
+                    <p class="footer-tagline">A free, structured C programming learning resource built for engineering
+                        students.</p>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer-head">Basics</div>
+                    <ul class="footer-ul">
+                        <li><a href="Intro.html"><i class="bi bi-chevron-right"></i>Introduction</a></li>
+                        <li><a href="Variable.html"><i class="bi bi-chevron-right"></i>Variables</a></li>
+                        <li><a href="Operator.html"><i class="bi bi-chevron-right"></i>Operators</a></li>
+                        <li><a href="Datatype.html"><i class="bi bi-chevron-right"></i>Data Types</a></li>
+                        <li><a href="Loop.html"><i class="bi bi-chevron-right"></i>Loops</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer-head">Advanced</div>
+                    <ul class="footer-ul">
+                        <li><a href="Conditional.html"><i class="bi bi-chevron-right"></i>Conditionals</a></li>
+                        <li><a href="array.html"><i class="bi bi-chevron-right"></i>Arrays</a></li>
+                        <li><a href="String.html"><i class="bi bi-chevron-right"></i>Strings</a></li>
+                        <li><a href="Function.html"><i class="bi bi-braces-asterisk"></i>Functions</a></li>
+                        <li><a href="Structure.html"><i class="bi bi-building"></i>Structures</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-head">Quick Links</div>
+                    <ul class="footer-ul">
+                        <li><a href="index.html#quiz"><i class="bi bi-patch-question"></i>Take a Quiz</a></li>
+                        <li><a href="index.html#runner"><i class="bi bi-play-circle"></i>Code Runner</a></li>
+                        <li><a href="index.html#progress-section"><i class="bi bi-bar-chart"></i>Progress Tracker</a>
+                        </li>
+                        <li><a href="faq.html"><i class="bi bi-question-circle"></i>FAQ Page</a></li>
+                    </ul>
+                    <div class="footer-head mt-3">Contact</div>
+                    <ul class="footer-ul">
+                        <li><a href="#"><i class="bi bi-envelope"></i>nikita@learnc.in</a></li>
+                        <li><a href="#"><i class="bi bi-telephone"></i>+91 98766 29972</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 LearnC — Nikita Ma'am. All rights reserved.</p>
+                <div class="socials">
+                    <a class="social-a" href="#"><i class="bi bi-instagram"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-youtube"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-facebook"></i></a>
+                    <a class="social-a" href="#"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="js/topic.js"></script>
+</body>
+
+</html>
